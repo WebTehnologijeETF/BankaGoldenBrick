@@ -1,0 +1,488 @@
+@import url(http://fonts.googleapis.com/css?family=Dancing+Script:700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext:400,700);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+html, body {
+	margin: 0;
+	padding: 0;
+} 
+
+body {
+	background: url(../images/pozadina.jpg) no-repeat center center fixed;
+	background-size: cover;
+}
+
+.okvir {
+	width: 1024px;
+	margin: 0 auto;
+	overflow: auto;
+
+}
+.zaglavlje {
+    width: 100%;
+    float: none;
+    overflow: auto;
+    background: #39b1cc;
+	background: -moz-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #51bbd2), color-stop(100%, #2d97af));
+	background: -webkit-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+	background: -o-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+	background: -ms-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+	background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%);
+}
+
+.logo > a > h1 {
+	font-family: 'Dancing Script', cursive;
+
+}
+div.logo > a:link, div.logo > a:visited, div.logo > a:active {
+	text-decoration: none;
+	color: gold;
+}
+
+.logo > a{
+	float: left;
+}
+.logo > a > h1 {
+	margin: 0 10px 0 0;
+/*	font-size: 340%;*/
+}
+.logo {
+/*	background-color: rgba(206, 220, 220, 0.5);*/
+     	
+    float: left;
+    width: 24%;
+    border-right: 1px solid rgba(80, 80, 80, 0.12);
+    background: #39b1cc;
+	background: -moz-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #51bbd2), color-stop(100%, #2d97af));
+	background: -webkit-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+	background: -o-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+	background: -ms-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+	background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%);
+    
+	padding: 5.1px;
+/*	overflow: auto;*/
+	/*border: solid;
+	border-width: 1px;*/
+/*	border-radius: 15px;*/
+}
+.logo > a > img {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+.meni {
+	font-family: 'Montserrat', Helvetica, sans-serif;
+    float: left;
+	margin: 0;
+	padding: 0;
+    width: 74.73%;
+	text-transform: uppercase;
+	background: #39b1cc;
+	background: -moz-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #51bbd2), color-stop(100%, #2d97af));
+	background: -webkit-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+	background: -o-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+	background: -ms-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+	background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%);
+}
+.meni ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;	
+}
+.meni li {
+	display: inline-table;
+	margin: 0;
+	padding: 0;
+}
+.meni ul > li > a:link, .meni ul > li > a:visited, .meni ul > li > a:active {
+	/*display: block;
+	text-decoration: none;
+	margin-left: 5px;
+	color: white;
+	font-size: 95%;
+	padding: 7px 5px;
+	*/
+	display: block;
+	margin: 0;
+	padding: 18px 25px 21px 25px;
+    border-right: 1px solid rgba(80, 80, 80, 0.12);
+	text-decoration: none;
+	font-size: 90%;
+	font-weight: 700;
+	color: #d3eced;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+.meni > ul > li:hover > a,
+.meni > ul > li > a:hover,
+.meni > ul > li.fokus > a {
+/*	background-color: rgba(255, 255, 194, 0.8);
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius: 5px;*/
+	color: #ffffff;
+	background: #32a9c3;
+	background: rgba(0, 0, 0, 0.1);
+}
+.sjena {     	
+/* IE10 Consumer Preview */ 
+background-image: -ms-linear-gradient(top left, #505152 0%, #D2E8F0 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(top left, #505152 0%, #D2E8F0 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(top left, #505152 0%, #D2E8F0 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #505152), color-stop(1, #D2E8F0));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(top left, #505152 0%, #D2E8F0 100%);
+
+/* W3C Markup, IE10 Release Preview */ 
+background-image: linear-gradient(to bottom right, #505152 0%, #D2E8F0 100%);
+    height: 7px;
+}
+.sadrzaj {
+    position: relative;
+    background: -webkit-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* W3C */
+    overflow: auto;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.desno {
+    float: left;
+    width: 25%;
+    margin: -25px 0 0 0;
+    padding: 10px;
+}
+.desno > .uvod_desno {
+    margin: 0;
+    padding: 0;
+    color: grey;
+}
+.feed {
+    position: relative;
+    border: 2px solid #2d97af;
+    border-radius: 4px;
+    margin: 0 0 10px 0;
+    padding: 1px;
+    overflow: auto;
+}
+.desno > .feed > img {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.desno > .feed > p.img_p {
+    margin: 0;
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    color: white; 
+    letter-spacing: -1px;  
+    background: rgb(0, 0, 0); /* fallback color */
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5px; 
+}
+.centar {
+    float: left;
+    width: 70%;
+    margin: 0;
+    padding: 10px;
+}
+.uvod_centar {
+    color: white;
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+.centar > .uvod_centar > h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.clanak {
+	width: 95%;
+	/*background-color: rgba(102, 153, 153, 0.2);*/
+/*	background-color: rgba(255, 255, 255, 0.5);*/
+    background-color: white;
+	border: 1px solid grey;
+	border-radius: 2px;
+	padding: 10px;
+	text-align: justify;
+	margin-bottom: 10px;
+	overflow: auto;
+}
+.clanak > img {
+	width: 20%;
+	height: auto;
+	display: block;
+	margin: 5px 10px 5px 0;
+	float: left;
+	padding: 1px;
+	border: 1px solid;
+	border-radius: 3%;
+}
+.clanak > p {
+    font-family: 'Open Sans', sans-serif;
+	font-size: 90%;
+    color: #7E7676;
+}
+.clanak > h3 {
+    color: #2d97af;
+}
+.clanak > .clanak_info > p {
+    color: grey;
+}
+.clanak a:link, .clanak a:visited, .clanak a:active {
+	text-decoration: none;
+	color: crimson;
+}
+.clanak .clanak_info {
+	margin: 0;
+	padding: 0;
+}
+.clanak .autor {
+	float: left;
+	width: 70%;
+}
+.clanak .vrijeme {
+	float: right;
+	width: 30%;
+} 
+.clanak h3 {
+	margin: 0;
+	padding: 0;
+}
+div.clanak > div.clanak_info{
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+.vrh {
+	position: fixed;
+	right: 3%;
+	bottom: 3%;
+	overflow: auto;
+	border-radius: 5px;
+	margin: 0;
+	padding: 0;
+
+}
+.vrh img:hover {
+	background-color: rgba(255, 255, 255, 0.7);
+}
+.vrh a {
+	margin: 0;
+	padding: 0;
+}
+.vrh img {
+	background-color: rgba(206, 220, 220, 0.5);
+/*	border-radius: 100%;*/
+    border-radius: 5px;
+    width: 35px;
+	margin: 0;
+	padding: 0;
+}
+.podnozje {
+	background: -webkit-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* W3C */
+/*	border-radius: 15px;*/
+/*	border: 1px solid black;*/
+    border-top: 2px solid silver;
+    margin: 0;
+	padding: 5px 5px 5px 30px;
+    float: none;
+}
+.podnozje > p {
+    color: #black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 100%;
+}
+/*
+.fokus {
+	color: #ffffff;
+  background: #32a9c3;
+  background: rgba(0, 0, 0, 0.1);
+}*/
+#tabela {
+	overflow: auto;
+	margin: 0 45px 45px 45px;
+	
+}
+#tabela tr:nth-child(odd){ 
+	background-color:rgba(170, 212, 255, 0.5);
+	}
+#tabela th {
+		background-color: rgba(0, 95, 191, 0.5);
+	}
+table#stednja {
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.5);
+	border: 1px solid;
+	border-collapse: collapse;
+}
+tr, td, th{
+	border: 1px solid;
+	text-align: center;
+	border-collapse: collapse;
+}
+th, td {
+	padding: 5px 10px;
+}
+td:hover {
+	background-color: rgba(255, 255, 255, 0.4);
+}
+td.iznos {
+	text-align: left;
+}
+td.eks {
+	font-weight: bold;
+}
+col#prva {
+	font-size: 110%;
+}
+.sadrzaj h2 {
+	text-align: center;
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+
+div.sadrzaj > div#linkovi > ul {
+	list-style-image: url(../images/link.png);
+}
+div.sadrzaj > div#linkovi > ul > li {
+	margin: 0 0 10px 10px;
+}
+div.sadrzaj > div#linkovi > ul > li > a {
+	font-size: 110%;
+}
+div.sadrzaj > div#linkovi > ul > li > a:link,
+div.sadrzaj > div#linkovi > ul > li > a:visited,
+div.sadrzaj > div#linkovi > ul > li > a:active {
+	text-decoration: none;
+	color: rgb(0, 0, 0);
+}
+div.sadrzaj > div#linkovi > ul > li > a:hover {
+	text-decoration: underline;
+}
+.kontakt p, .kontakt input[type="text"], 
+.kontakt input[type="email"], 
+.kontakt input[type="tel"],
+.kontakt textarea{
+    font-family: 'Open Sans', sans-serif;
+	margin: 0;
+	padding: 0;
+	border-radius: 5px;
+}
+.kontakt input {
+	margin-bottom: 10px;
+}
+.kontakt_desno {
+    width: 25%;
+    float: left;
+    padding: 10px;
+}
+.sadrzaj > .kontakt {
+    margin 0 auto;
+    float: left;
+    width: 70%;
+    overflow: auto;
+}
+.sadrzaj > .kontakt > label {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 50%;
+    text-align: right;
+    margin-right: 5px;
+}
+#upozorenje {
+    color: red;
+}
+.sadrzaj > .kontakt > input,
+.sadrzaj > .kontakt > textarea {
+    display: inline-block;
+    float: left;
+    margin-bottom: 10px;
+}
+.kontakt > h3, .kontakt > label#upozorenje {
+    font-family: 'Montserrat' sans-serif;
+    font-weight: 400;
+    text-align: left;
+    float: right;
+    width: 50%;
+}
+.kontakt > label#upozorenje {
+    margin-bottom: 10px;
+}
+.kontakt_desno > .kontakt_feed > h4 {
+    color: white;
+    border-bottom: 1px solid grey;
+    margin: 0;
+    padding: 5px;
+    margin-bottom: 1px;
+}
+
+div.sadrzaj > div.kontakt_desno >div.kontakt_feed > .feed_content > p {
+    font-size: 80%;
+    margin: 0;
+    padding: 0;
+    color: grey;
+}
+.kontakt_desno > .kontakt_feed {
+    border: 2px solid #2d97af;
+    border-radius: 2px;
+    padding: 0;
+    margin-bottom: 10px;
+}
+.obavezno {
+    color: red;
+    font-size: 105%;    
+}
+.feed_content {
+    margin: 1px;
+    background: white;
+    padding: 10px;
+    border-radius: 3px;
+}
+/*Responsive CSS*/
+@media (max-width:1024px) {
+    .okvir {
+        width: 770px;
+    }
+    .centar {
+        width: 65%;
+    }
+    .logo > a > h1 {
+        margin: 3px 5px 0 0;
+        font-size: 140%;
+    }
+    .logo {
+        width: 22%;
+        padding: 5.1px;
+    }
+    .logo > a > img {
+        width: 38px;
+        height: auto;
+        margin-right: 5px;
+        margin-left: 10px;
+    }
+    .meni {
+    }
+}
