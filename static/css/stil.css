@@ -161,8 +161,8 @@ background-image: linear-gradient(to bottom right, #505152 0%, #D2E8F0 100%);
 }
 .desno {
     float: left;
-    width: 25%;
-    margin: -25px 0 0 0;
+    width: 20%;
+    margin: 35px 0 0 0;
     padding: 10px;
 }
 .desno > .uvod_desno {
@@ -194,9 +194,37 @@ background-image: linear-gradient(to bottom right, #505152 0%, #D2E8F0 100%);
     background: rgba(0, 0, 0, 0.7);
     padding: 5px; 
 }
-.centar {
+.lijevo {
+    width: 20%;
     float: left;
-    width: 70%;
+    padding: 45px 5px 5px 10px;
+}
+.social_feed > .social_feed_content > a > img {
+    width: 34px;
+}
+.social_feed {
+    border: 1px solid #2d97af;
+    margin-bottom: 10px;
+    padding: 1px;
+    border-radius: 2px;
+}
+.social_feed > h4 {
+    font-family: 'Montserrat' , sans-serif;
+    margin: 0;
+    padding: 5px;
+    color: white;
+    border-bottom: 1px solid grey;
+}
+.social_feed > .social_feed_content {
+    background-color: white;
+    margin-top: 1px;
+    padding: 5px 5px 0 5px;
+    border-radius: 2px;
+}
+.centar {
+    display: inline-block;
+    float: left;
+    width: 50%;
     margin: 0;
     padding: 10px;
 }
@@ -431,7 +459,7 @@ div.sadrzaj > div#linkovi > ul > li > a:hover {
 .kontakt > label#upozorenje {
     margin-bottom: 10px;
 }
-.kontakt_desno > .kontakt_feed > h4 {
+.kontakt_feed > h4 {
     color: white;
     border-bottom: 1px solid grey;
     margin: 0;
@@ -439,13 +467,13 @@ div.sadrzaj > div#linkovi > ul > li > a:hover {
     margin-bottom: 1px;
 }
 
-div.sadrzaj > div.kontakt_desno >div.kontakt_feed > .feed_content > p {
+div.kontakt_feed > .feed_content > p {
     font-size: 80%;
     margin: 0;
     padding: 0;
     color: grey;
 }
-.kontakt_desno > .kontakt_feed {
+.kontakt_feed {
     border: 2px solid #2d97af;
     border-radius: 2px;
     padding: 0;
