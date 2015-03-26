@@ -45,11 +45,8 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 }
 .logo > a > h1 {
 	margin: 0 10px 0 0;
-/*	font-size: 340%;*/
 }
 .logo {
-/*	background-color: rgba(206, 220, 220, 0.5);*/
-     	
     float: left;
     width: 24%;
     border-right: 1px solid rgba(80, 80, 80, 0.12);
@@ -60,12 +57,7 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 	background: -o-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
 	background: -ms-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
 	background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%);
-    
 	padding: 5.1px;
-/*	overflow: auto;*/
-	/*border: solid;
-	border-width: 1px;*/
-/*	border-radius: 15px;*/
 }
 .logo > a > img {
     width: 40px;
@@ -74,12 +66,11 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
     margin-left: 20px;
 }
 .meni {
-	font-family: 'Montserrat', Helvetica, sans-serif;
+	font-family: 'Montserrat', sans-serif;
     float: left;
 	margin: 0;
 	padding: 0;
     width: 74.73%;
-	text-transform: uppercase;
 	background: #39b1cc;
 	background: -moz-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #51bbd2), color-stop(100%, #2d97af));
@@ -94,19 +85,14 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 	padding: 0;	
 }
 .meni li {
-	display: inline-table;
+    display: inline-block;
 	margin: 0;
 	padding: 0;
 }
-.meni ul > li > a:link, .meni ul > li > a:visited, .meni ul > li > a:active {
-	/*display: block;
-	text-decoration: none;
-	margin-left: 5px;
-	color: white;
-	font-size: 95%;
-	padding: 7px 5px;
-	*/
-	display: block;
+.meni ul > li > a:link, 
+.meni ul > li > a:visited, 
+.meni ul > li > a:active {
+	display: inline-block;
 	margin: 0;
 	padding: 18px 25px 21px 25px;
     border-right: 1px solid rgba(80, 80, 80, 0.12);
@@ -120,40 +106,26 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 .meni > ul > li:hover > a,
 .meni > ul > li > a:hover,
 .meni > ul > li.fokus > a {
-/*	background-color: rgba(255, 255, 194, 0.8);
-	background-color: rgba(255, 255, 255, 0.3);
-	border-radius: 5px;*/
 	color: #ffffff;
 	background: #32a9c3;
 	background: rgba(0, 0, 0, 0.1);
 }
 .sjena {     	
-/* IE10 Consumer Preview */ 
-background-image: -ms-linear-gradient(top left, #505152 0%, #D2E8F0 100%);
-
-/* Mozilla Firefox */ 
-background-image: -moz-linear-gradient(top left, #505152 0%, #D2E8F0 100%);
-
-/* Opera */ 
-background-image: -o-linear-gradient(top left, #505152 0%, #D2E8F0 100%);
-
-/* Webkit (Safari/Chrome 10) */ 
-background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #505152), color-stop(1, #D2E8F0));
-
-/* Webkit (Chrome 11+) */ 
-background-image: -webkit-linear-gradient(top left, #505152 0%, #D2E8F0 100%);
-
-/* W3C Markup, IE10 Release Preview */ 
-background-image: linear-gradient(to bottom right, #505152 0%, #D2E8F0 100%);
+    background-image: -ms-linear-gradient(top left, #505152 0%, #D2E8F0 100%);
+    background-image: -moz-linear-gradient(top left, #505152 0%, #D2E8F0 100%);
+    background-image: -o-linear-gradient(top left, #505152 0%, #D2E8F0 100%);
+    background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #505152), color-stop(1, #D2E8F0));
+    background-image: -webkit-linear-gradient(top left, #505152 0%, #D2E8F0 100%);
+    background-image: linear-gradient(to bottom right, #505152 0%, #D2E8F0 100%);
     height: 7px;
 }
 .sadrzaj {
     position: relative;
-    background: -webkit-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* Chrome 10+, Saf5.1+ */
-    background:    -moz-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* FF3.6+ */
-    background:     -ms-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* IE10 */
-    background:      -o-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* Opera 11.10+ */
-    background:         linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* W3C */
+    background: -webkit-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%);
+    background:    -moz-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%);
+    background:     -ms-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%);
+    background:      -o-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%);
+    background:         linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%);
     overflow: auto;
     font-family: 'Open Sans', sans-serif;
     margin: 0;
@@ -183,14 +155,13 @@ background-image: linear-gradient(to bottom right, #505152 0%, #D2E8F0 100%);
     margin: 0;
     padding: 0;
 }
-.desno > .feed > p.img_p {
+.desno > .feed > p {
     margin: 0;
     position: absolute; 
     top: 0; 
     left: 0; 
     color: white; 
     letter-spacing: -1px;  
-    background: rgb(0, 0, 0); /* fallback color */
     background: rgba(0, 0, 0, 0.7);
     padding: 5px; 
 }
@@ -242,10 +213,8 @@ background-image: linear-gradient(to bottom right, #505152 0%, #D2E8F0 100%);
 
 .clanak {
 	width: 95%;
-	/*background-color: rgba(102, 153, 153, 0.2);*/
-/*	background-color: rgba(255, 255, 255, 0.5);*/
     background-color: white;
-	border: 1px solid grey;
+	border: 1px solid darkslategrey;
 	border-radius: 2px;
 	padding: 10px;
 	text-align: justify;
@@ -255,7 +224,6 @@ background-image: linear-gradient(to bottom right, #505152 0%, #D2E8F0 100%);
 .clanak > img {
 	width: 20%;
 	height: auto;
-	display: block;
 	margin: 5px 10px 5px 0;
 	float: left;
 	padding: 1px;
@@ -287,6 +255,7 @@ background-image: linear-gradient(to bottom right, #505152 0%, #D2E8F0 100%);
 }
 .clanak .vrijeme {
 	float: right;
+    text-align: right;
 	width: 30%;
 } 
 .clanak h3 {
@@ -316,40 +285,30 @@ div.clanak > div.clanak_info{
 }
 .vrh img {
 	background-color: rgba(206, 220, 220, 0.5);
-/*	border-radius: 100%;*/
     border-radius: 5px;
     width: 35px;
 	margin: 0;
 	padding: 0;
 }
 .podnozje {
-	background: -webkit-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* Chrome 10+, Saf5.1+ */
-    background:    -moz-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* FF3.6+ */
-    background:     -ms-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* IE10 */
-    background:      -o-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* Opera 11.10+ */
-    background:         linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%); /* W3C */
-/*	border-radius: 15px;*/
-/*	border: 1px solid black;*/
+	background: -webkit-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%);
+    background:    -moz-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%);
+    background:     -ms-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%);
+    background:      -o-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%);
+    background:         linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%);
     border-top: 2px solid silver;
     margin: 0;
 	padding: 5px 5px 5px 30px;
     float: none;
 }
 .podnozje > p {
-    color: #black;
+    color: black;
     font-family: 'Montserrat', sans-serif;
     font-size: 100%;
 }
-/*
-.fokus {
-	color: #ffffff;
-  background: #32a9c3;
-  background: rgba(0, 0, 0, 0.1);
-}*/
 #tabela {
 	overflow: auto;
 	margin: 0 45px 45px 45px;
-	
 }
 #tabela tr:nth-child(odd){ 
 	background-color:rgba(170, 212, 255, 0.5);
@@ -435,7 +394,7 @@ col#prva {
 .kontakt p, .kontakt input[type="text"], 
 .kontakt input[type="email"], 
 .kontakt input[type="tel"],
-.kontakt textarea{
+.kontakt textarea {
     font-family: 'Open Sans', sans-serif;
 	margin: 0;
 	padding: 0;
@@ -451,7 +410,7 @@ col#prva {
     margin-top: 45px;
 }
 .kontakt {
-    margin 0 auto;
+    margin: 0 auto;
     float: left;
     width: 55%;
     overflow: auto;
@@ -465,19 +424,19 @@ col#prva {
     width: 40%;
     text-align: right;
     margin-right: 5px;
+    margin-bottom: 10px;
 }
 #upozorenje {
     color: red;
 }
-.sadrzaj > .kontakt > input,
-.sadrzaj > .kontakt > textarea {
-    display: inline-block;
+.kontakt > input,
+.kontakt > textarea {
     display: inline-block;
     float: left;
     margin-bottom: 10px;
 }
 .kontakt > h3, .kontakt > label#upozorenje {
-    font-family: 'Montserrat' sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     text-align: left;
     float: right;
