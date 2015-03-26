@@ -224,7 +224,7 @@ background-image: linear-gradient(to bottom right, #505152 0%, #D2E8F0 100%);
 .centar {
     display: inline-block;
     float: left;
-    width: 50%;
+    width: 53%;
     margin: 0;
     padding: 10px;
 }
@@ -445,23 +445,24 @@ col#prva {
 	margin-bottom: 10px;
 }
 .kontakt_desno {
-    width: 25%;
+    width: 20%;
     float: left;
     padding: 10px;
+    margin-top: 45px;
 }
-.sadrzaj > .kontakt {
+.kontakt {
     margin 0 auto;
     float: left;
-    width: 70%;
+    width: 55%;
     overflow: auto;
 }
-.sadrzaj > .kontakt > label {
+.kontakt > label {
     font-family: 'Open Sans', sans-serif;
     font-weight: 100;
     display: inline-block;
     float: left;
     clear: left;
-    width: 50%;
+    width: 40%;
     text-align: right;
     margin-right: 5px;
 }
@@ -471,6 +472,7 @@ col#prva {
 .sadrzaj > .kontakt > input,
 .sadrzaj > .kontakt > textarea {
     display: inline-block;
+    display: inline-block;
     float: left;
     margin-bottom: 10px;
 }
@@ -479,14 +481,14 @@ col#prva {
     font-weight: 400;
     text-align: left;
     float: right;
-    width: 50%;
+    width: 60%;
 }
 .kontakt > label#upozorenje {
     margin-bottom: 10px;
 }
 .kontakt_feed > h4 {
     color: white;
-    border-bottom: 1px solid grey;
+    border-bottom: 2px solid grey;
     margin: 0;
     padding: 5px;
     margin-bottom: 1px;
@@ -499,7 +501,27 @@ div.kontakt_feed > .feed_content > p {
     color: grey;
 }
 .kontakt_feed {
-    border: 2px solid #2d97af;
+    border: 1px solid #2d97af;
+    border-radius: 2px;
+    padding: 0;
+    margin-bottom: 10px;
+}
+.kontakt_feed_desno > h4 {
+    color: #2d97af;
+    border-bottom: 1px solid grey;
+    margin: 0;
+    padding: 5px;
+    margin-bottom: 1px;
+}
+
+div.kontakt_feed_desno > .feed_content > p {
+    font-size: 80%;
+    margin: 0;
+    padding: 0;
+    color: grey;
+}
+.kontakt_feed_desno {
+    border: 1px solid #2d97af;
     border-radius: 2px;
     padding: 0;
     margin-bottom: 10px;
@@ -514,13 +536,13 @@ div.kontakt_feed > .feed_content > p {
     padding: 10px;
     border-radius: 3px;
 }
-.about_lijevo {
-    width: 50%;
+.about_centar {
+    width: 53%;
     float: left;
-    margin-left: 30px;
+    margin-left: 10px;
     margin-top: 10px;
 }
-.about_lijevo_content {
+.about_centar_content {
     padding: 0 15px 15px 15px;
     background-color: white;
     color: grey;
@@ -528,11 +550,22 @@ div.kontakt_feed > .feed_content > p {
     border-radius: 5px;
     margin: 10px 0;
 }
-.about_lijevo > h3 {
+.about_centar > h3 {
     color: white;
     font-family: 'Montserrat', sans-serif;
     margin: 0 0 0 5px;
     padding: 0;
+}
+.kontakt_desno > .kontakt_feed_desno > .feed_content.clock{
+    background-image: url(../images/clock.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    padding: 70px 0;
+    text-align: center;
+}
+.kontakt_desno > .kontakt_feed_desno > .feed_content.clock > p {
+    color: darkslategrey;
 }
 /*Responsive CSS*/
 @media (max-width:1024px) {
@@ -540,7 +573,19 @@ div.kontakt_feed > .feed_content > p {
         width: 770px;
     }
     .centar {
-        width: 65%;
+        width: 60%;
+    }
+    .lijevo  {
+        width: 15%;
+    }
+    .desno {
+        width: 17%;
+    }
+    .about_desno {
+        width: 26%;
+    }
+    .kontakt {
+        width: 60%;
     }
     .logo > a > h1 {
         margin: 3px 5px 0 0;
@@ -557,5 +602,11 @@ div.kontakt_feed > .feed_content > p {
         margin-left: 10px;
     }
     .meni {
+    }
+    .p_minimize {
+        font-size: 60%;
+    }
+    .kontakt_desno > .kontakt_feed_desno > .feed_content.clock{
+        font-size: 75%;
     }
 }
