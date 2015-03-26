@@ -30,7 +30,7 @@ body {
 	background: -ms-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
 	background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%);
 }
-
+/*Logo*/
 .logo > a > h1 {
 	font-family: 'Dancing Script', cursive;
 
@@ -65,6 +65,7 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
     margin-right: 10px;
     margin-left: 20px;
 }
+/*Navbar*/
 .meni {
 	font-family: 'Montserrat', sans-serif;
     float: left;
@@ -110,6 +111,7 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 	background: #32a9c3;
 	background: rgba(0, 0, 0, 0.1);
 }
+/*Sjena ispod menija*/
 .sjena {     	
     background-image: -ms-linear-gradient(top left, #505152 0%, #D2E8F0 100%);
     background-image: -moz-linear-gradient(top left, #505152 0%, #D2E8F0 100%);
@@ -119,6 +121,7 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
     background-image: linear-gradient(to bottom right, #505152 0%, #D2E8F0 100%);
     height: 7px;
 }
+/*Sadržaj*/
 .sadrzaj {
     position: relative;
     background: -webkit-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%);
@@ -131,6 +134,7 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
     margin: 0;
     padding: 0;
 }
+/*Naslovnica*/
 .desno {
     float: left;
     width: 20%;
@@ -168,7 +172,8 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 .lijevo {
     width: 20%;
     float: left;
-    padding: 45px 5px 5px 10px;
+    padding: 0 5px 5px 10px;
+    margin-top: 45px;
 }
 .social_feed > .social_feed_content > a > img {
     width: 34px;
@@ -210,7 +215,7 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
     margin: 0;
     padding: 0;
 }
-
+/*Članci*/
 .clanak {
 	width: 95%;
     background-color: white;
@@ -266,6 +271,7 @@ div.clanak > div.clanak_info{
 	margin: 0 0 10px 0;
 	padding: 0;
 }
+/*Nazad na vrh*/
 .vrh {
 	position: fixed;
 	right: 3%;
@@ -290,6 +296,7 @@ div.clanak > div.clanak_info{
 	margin: 0;
 	padding: 0;
 }
+/*Podnožje (Footer)*/
 .podnozje {
 	background: -webkit-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%);
     background:    -moz-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%);
@@ -306,9 +313,13 @@ div.clanak > div.clanak_info{
     font-family: 'Montserrat', sans-serif;
     font-size: 100%;
 }
+/*Štednja stranica*/
 #tabela {
+    float: left;
+    width: 55%;
 	overflow: auto;
-	margin: 0 45px 45px 45px;
+	margin: 5px;
+    margin-top: 25px;
 }
 #tabela tr:nth-child(odd){ 
 	background-color:rgba(170, 212, 255, 0.5);
@@ -327,8 +338,13 @@ tr, td, th{
 	text-align: center;
 	border-collapse: collapse;
 }
-th, td {
+table#stednja th,
+table#stednja td {
 	padding: 5px 10px;
+    font-size: 80%;
+}
+table#stednja th {
+    font-size: 70%;
 }
 td:hover {
 	background-color: rgba(255, 255, 255, 0.4);
@@ -342,17 +358,48 @@ td.eks {
 col#prva {
 	font-size: 110%;
 }
+
 .sadrzaj h2 {
 	text-align: center;
 	margin: 0 0 10px 0;
 	padding: 0;
 }
+.feed_content {
+    margin: 1px;
+    background: white;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+/*O nama stranica*/
 .about_desno {
     width: 22%;
     float: left;
     padding: 10px;    
     margin-top: 35px;
 }
+.about_centar {
+    width: 53%;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.about_centar_content {
+    padding: 0 15px 15px 15px;
+    background-color: white;
+    color: dimgray;
+    font-size: 90%;
+    border: 2px solid #2d97af;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+.about_centar > h3 {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 0 0 5px;
+    padding: 0;
+}
+/*Partneri*/
 .linkovi {
     border: 1px solid #2d97af;
     margin: 0;
@@ -369,7 +416,8 @@ col#prva {
 }
 .linkovi_content {
     background-color: white;
-    color: grey;
+    color: slategray;
+    font-size: 90%;
     margin: 0;
     padding: 0;
     border-radius: 3px;
@@ -391,6 +439,7 @@ col#prva {
 .linkovi_content > ul > li > a:hover {
 	text-decoration: underline;
 }
+/*Kontakt stranica*/
 .kontakt p, .kontakt input[type="text"], 
 .kontakt input[type="email"], 
 .kontakt input[type="tel"],
@@ -407,7 +456,7 @@ col#prva {
     width: 20%;
     float: left;
     padding: 10px;
-    margin-top: 45px;
+    margin-top: 35px;
 }
 .kontakt {
     margin: 0 auto;
@@ -489,32 +538,6 @@ div.kontakt_feed_desno > .feed_content > p {
     color: red;
     font-size: 105%;    
 }
-.feed_content {
-    margin: 1px;
-    background: white;
-    padding: 10px;
-    border-radius: 3px;
-}
-.about_centar {
-    width: 53%;
-    float: left;
-    margin-left: 10px;
-    margin-top: 10px;
-}
-.about_centar_content {
-    padding: 0 15px 15px 15px;
-    background-color: white;
-    color: grey;
-    border: 2px solid #2d97af;
-    border-radius: 5px;
-    margin: 10px 0;
-}
-.about_centar > h3 {
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    margin: 0 0 0 5px;
-    padding: 0;
-}
 .kontakt_desno > .kontakt_feed_desno > .feed_content.clock{
     background-image: url(../images/clock.png);
     background-repeat: no-repeat;
@@ -526,6 +549,8 @@ div.kontakt_feed_desno > .feed_content > p {
 .kontakt_desno > .kontakt_feed_desno > .feed_content.clock > p {
     color: darkslategrey;
 }
+
+
 /*Responsive CSS*/
 @media (max-width:1024px) {
     .okvir {
@@ -568,4 +593,8 @@ div.kontakt_feed_desno > .feed_content > p {
     .kontakt_desno > .kontakt_feed_desno > .feed_content.clock{
         font-size: 75%;
     }
+    table#stednja th,
+    table#stednja td {
+    font-size: 70%;
+}
 }
