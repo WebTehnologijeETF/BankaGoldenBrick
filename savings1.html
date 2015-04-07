@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>GoldenBrick | Kontakt</title>
+		<title>GoldenBrick | Štednja</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="static/css/stil.css">
-        <link rel="icon" type="image/x-icon" href="static/images/icon.ico">
-        <script src="static/js/validacija.js"></script>
+		<link rel="icon" type="image/x-icon" href="static/images/icon.ico">
 		<script src="static/js/meni.js"></script>
 	</head>
 	<body>
@@ -22,14 +21,14 @@
 				<div class="meni">
 					<ul>
 						<li><a href="index.html">Naslovnica</a></li>
-						<li class="padajuci"><a href="savings.html">Štednja</a>
+						<li class="fokus padajuci"><a href="savings.html">Štednja</a>
 							<ul>
 								<li><a href="savings1.html">A Vista</a></li>
 								<li><a href="savings2.html">Dječija štednja</a></li>
 							</ul>
 						</li>
 						<li><a href="about.html">O nama</a></li>
-						<li class="fokus"><a href="contact.html">Kontakt</a></li>
+						<li><a href="contact.html">Kontakt</a></li>
 					</ul>
 				</div>
 			</div>
@@ -68,42 +67,161 @@
                         </div>
                     </div>
                 </div>
-				<div class="kontakt">
-                        <h3>&nbsp;Kontaktirajte nas</h3>
-                        <form name="kontaktForma" onsubmit="return(validacija());">
-						<label class="ispred">Ime<span class="obavezno">&#42;</span></label>
-                            <input type="text" name="ime" class="obavezan">
-                            <img src="static/images/error.png" alt="greska" class="error_img" id="ime_error">
-							<label class="iza" id="ime_greska"></label>
-						<label class="ispred">Prezime<span class="obavezno">&#42;</span></label>
-                            <input type="text" name="prezime" class="obavezan">
-                            <img src="static/images/error.png" alt="greska" class="error_img" id="prezime_error">
-							<label class="iza" id="prezime_greska"></label>
-                        <label class="ispred">Adresa</label>
-                            <input type="text" name="adresa">
-                            <img src="static/images/error.png" alt="greska" class="error_img" id="adresa_error">  
-							<label class="iza" id="adresa_greska"></label>
-						<label class="ispred">Email<span class="obavezno">&#42;</span></label>
-                            <input type="email" name="email" class="obavezan" id="emailID">
-                            <img src="static/images/error.png" alt="greska" class="error_img" id="email_error">
-                            <label class="iza" id="email_greska"></label>
-                        <label class="ispred">Potvrdite email<span class="obavezno">&#42;</span></label>
-                            <input type="email" name="emailPotvrda" class="obavezan" id="emailPotvrdaID">
-                            <img src="static/images/error.png" alt="greska" class="error_img" id="emailPotvrda_error">
-                            <label class="iza" id="emailPotvrda_greska"></label>
-                        <label class="ispred">Telefon</label>
-                            <input type="tel" name="telefon">
-                            <img src="static/images/error.png" alt="greska" class="error_img" id="telefon_error">
-							<label class="iza" id="telefon_greska"></label>
-                        <label class="ispred">Ocjena usluge (min-max)</label>
-                            <input type="range" min="1" value="1" max="10" step="1" name="usluga">
-						<label class="ispred">Poruka<span class="obavezno">&#42;</span></label>
-                            <textarea cols="25" rows="5" placeholder=" Unesite Vašu poruku..." class="obavezan" name="poruka"></textarea>
-                            <img src="static/images/error.png" alt="greska" class="error_img" id="poruka_error">
-							<label class="iza" id="poruka_greska"></label>
-						<label id="upozorenje">&#42;&nbsp;Polja označena zvjezdicom su obavezna.</label>
-                        <label class="ispred">&nbsp;</label><input type="submit" name="posalji" value="Pošalji">
-                        </form>
+				<div id="tabela">
+					<h4>A VISTA I OROČENI DEVIZNI I KM ŠTEDNI ULOZI</h4>
+					<p>Štedni ulozi, do 50.000 KM, su osigurani prema Zakonu o osiguranju depozita.<br>
+Banka je među prvima dobila Certifikat Agencije za osiguranje depozita.</p>
+					<p>Pregled nominalnih kamatnih stopa na štednju građana u KM valuti</p>
+					<table id="stednja">
+						<colgroup>
+							<col id="prva">
+							<col id="druga">
+							<col id="treca">
+							<col id="cetvrta">
+						</colgroup>
+						<tr>
+							<th>ROK OROČENJA</th>
+							<th>IZNOS</th>
+							<th>GODIŠNJA NOM. <br>KAM. STOPA</th>
+							<th>EKS*</th>
+						</tr>
+						<tr>
+							<td>Depozit po viđenju</td>
+							<td>Svi iznosi</td>
+							<td>0.00%</td>
+							<td class="eks">0.00%</td>
+						</tr>
+						<tr>
+							<td>Oročeni depozit <br>na 6 mjeseci</td>
+							<td>Svi iznosi</td>
+							<td>0.05%</td>
+							<td class="eks">0.05%</td>
+						</tr>
+						<tr>
+							<td>Oročeni depozit <br>na 12 mjeseci</td>
+							<td class="iznos">	do 10.000 KM<br>
+									od 10.001 KM do 30.000 KM<br>
+									od 30.001 KM do 70.000 KM<br>
+									od 70.001 KM do 120.000 KM<br>
+									preko 120.000 KM
+							</td>
+							<td>
+								0,10%<br>
+								0,10%<br>
+								0,10%<br>
+								0,10%<br>
+								0,10%
+							</td>
+							<td class="eks">
+								0,10%<br>
+								0,10%<br>
+								0,10%<br>
+								0,10%<br>
+								0,10%
+							</td>
+						</tr>
+						<tr>
+							<td>Oročeni depozit <br>na 13 mjeseci</td>
+							<td class="iznos">	do 10.000 KM<br>
+									od 10.001 KM do 30.000 KM<br>
+									od 30.001 KM do 70.000 KM<br>
+									od 70.001 KM do 120.000 KM<br>
+									preko 120.000 KM
+							</td>
+							<td>
+								0,20%<br>
+								0,20%<br>
+								0,20%<br>
+								0,20%<br>
+								0,20%
+							</td>
+							<td class="eks">
+								0,20%<br>
+								0,20%<br>
+								0,20%<br>
+								0,20%<br>
+								0,20%
+							</td>
+						</tr>
+						<tr>
+							<td>Oročeni depozit <br>na 24 mjeseci</td>
+							<td class="iznos">	do 10.000 KM<br>
+									od 10.001 KM do 30.000 KM<br>
+									od 30.001 KM do 70.000 KM<br>
+									od 70.001 KM do 120.000 KM<br>
+									preko 120.000 KM
+							</td>
+							<td>
+								0,30%<br>
+								0,40%<br>
+								0,50%<br>
+								0,60%<br>
+								0,70%
+							</td>
+							<td class="eks">
+								0,30%<br>
+								0,40%<br>
+								0,50%<br>
+								0,60%<br>
+								0,70%
+							</td>
+						</tr>
+						<tr>
+							<td>Oročeni depozit <br>na 36 mjeseci</td>
+							<td class="iznos">	do 10.000 KM<br>
+									od 10.001 KM do 30.000 KM<br>
+									od 30.001 KM do 70.000 KM<br>
+									od 70.001 KM do 120.000 KM<br>
+									preko 120.000 KM
+							</td>
+							<td>
+								0,40%<br>
+								0,50%<br>
+								0,60%<br>
+								0,70%<br>
+								0,80%
+							</td>
+							<td class="eks">
+								0,40%<br>
+								0,50%<br>
+								0,60%<br>
+								0,70%<br>
+								0,80%
+							</td>
+						</tr>
+						<tr>
+							<td>Oročeni depozit <br>na 48 mjeseci i više</td>
+							<td class="iznos">	do 10.000 KM<br>
+									od 10.001 KM do 30.000 KM<br>
+									od 30.001 KM do 70.000 KM<br>
+									od 70.001 KM do 120.000 KM<br>
+									preko 120.000 KM
+							</td>
+							<td>
+								0,60%<br>
+								0,70%<br>
+								0,80%<br>
+								0,90%<br>
+								1,00%
+							</td>
+							<td class="eks">
+								0,60%<br>
+								0,70%<br>
+								0,80%<br>
+								0,90%<br>
+								1,00%
+							</td>
+						</tr>
+					</table>
+					<p>Kamatne stope na oročene depozite su fiksne<br> 
+Kamatne stope se primjenjuju  od 02.03.2015.godine na nova oročenja. <br><br>
+Minimalni iznos** oročenja kod proizvoda Standardno oročeni depozit<br>
+- Za KM oročenja KM 2,000
+- Za EUR oročenja EUR 1,000
+- Za oročenja u ostalim valutama, iznos u protuvrijednosti KM 2,000<br><br>
+ 
+*EKS – Efektivna kamatna stopa<br><br>
+**Minimalni iznos oročenja se primjenjuje od 01.08.2014.godine na nova oročenja.</p><br>
 				</div>
                 <div class="kontakt_desno">
                     <div class="kontakt_feed_desno">

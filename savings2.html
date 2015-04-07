@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>GoldenBrick | Kontakt</title>
+		<title>GoldenBrick | Štednja</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="static/css/stil.css">
-        <link rel="icon" type="image/x-icon" href="static/images/icon.ico">
-        <script src="static/js/validacija.js"></script>
+		<link rel="icon" type="image/x-icon" href="static/images/icon.ico">
 		<script src="static/js/meni.js"></script>
 	</head>
 	<body>
@@ -22,14 +21,14 @@
 				<div class="meni">
 					<ul>
 						<li><a href="index.html">Naslovnica</a></li>
-						<li class="padajuci"><a href="savings.html">Štednja</a>
+						<li class="fokus padajuci"><a href="savings.html">Štednja</a>
 							<ul>
 								<li><a href="savings1.html">A Vista</a></li>
 								<li><a href="savings2.html">Dječija štednja</a></li>
 							</ul>
 						</li>
 						<li><a href="about.html">O nama</a></li>
-						<li class="fokus"><a href="contact.html">Kontakt</a></li>
+						<li><a href="contact.html">Kontakt</a></li>
 					</ul>
 				</div>
 			</div>
@@ -68,44 +67,44 @@
                         </div>
                     </div>
                 </div>
-				<div class="kontakt">
-                        <h3>&nbsp;Kontaktirajte nas</h3>
-                        <form name="kontaktForma" onsubmit="return(validacija());">
-						<label class="ispred">Ime<span class="obavezno">&#42;</span></label>
-                            <input type="text" name="ime" class="obavezan">
-                            <img src="static/images/error.png" alt="greska" class="error_img" id="ime_error">
-							<label class="iza" id="ime_greska"></label>
-						<label class="ispred">Prezime<span class="obavezno">&#42;</span></label>
-                            <input type="text" name="prezime" class="obavezan">
-                            <img src="static/images/error.png" alt="greska" class="error_img" id="prezime_error">
-							<label class="iza" id="prezime_greska"></label>
-                        <label class="ispred">Adresa</label>
-                            <input type="text" name="adresa">
-                            <img src="static/images/error.png" alt="greska" class="error_img" id="adresa_error">  
-							<label class="iza" id="adresa_greska"></label>
-						<label class="ispred">Email<span class="obavezno">&#42;</span></label>
-                            <input type="email" name="email" class="obavezan" id="emailID">
-                            <img src="static/images/error.png" alt="greska" class="error_img" id="email_error">
-                            <label class="iza" id="email_greska"></label>
-                        <label class="ispred">Potvrdite email<span class="obavezno">&#42;</span></label>
-                            <input type="email" name="emailPotvrda" class="obavezan" id="emailPotvrdaID">
-                            <img src="static/images/error.png" alt="greska" class="error_img" id="emailPotvrda_error">
-                            <label class="iza" id="emailPotvrda_greska"></label>
-                        <label class="ispred">Telefon</label>
-                            <input type="tel" name="telefon">
-                            <img src="static/images/error.png" alt="greska" class="error_img" id="telefon_error">
-							<label class="iza" id="telefon_greska"></label>
-                        <label class="ispred">Ocjena usluge (min-max)</label>
-                            <input type="range" min="1" value="1" max="10" step="1" name="usluga">
-						<label class="ispred">Poruka<span class="obavezno">&#42;</span></label>
-                            <textarea cols="25" rows="5" placeholder=" Unesite Vašu poruku..." class="obavezan" name="poruka"></textarea>
-                            <img src="static/images/error.png" alt="greska" class="error_img" id="poruka_error">
-							<label class="iza" id="poruka_greska"></label>
-						<label id="upozorenje">&#42;&nbsp;Polja označena zvjezdicom su obavezna.</label>
-                        <label class="ispred">&nbsp;</label><input type="submit" name="posalji" value="Pošalji">
-                        </form>
+				<div class="stednja">
+					<h4>DJEČIJA ŠTEDNJA</h4>
+					<p>ŠTEDNJA ZA BUDUĆNOST</p>
+					<p>Omogućava vašim roditeljima i ostalim najbližima da do vašeg
+						punoljetstva polažu novčana sredstva na posebno kreiranu štednu knjižicu – Rafa Žirafa.</p>
+					<p>Pregled nominalnih kamatnih stopa u KM valuti</p>
+					<table id="stednja">
+						<tr>
+							<th>ROK OROČENJA</th>
+							<th>GODIŠNJA NOMINALNA<br>KAMATNA STOPA</th>
+							<th>EKS</th>
+						</tr>
+						<tr>
+							<td>24 mjeseca</td>
+							<td>0,60%</td>
+							<td>0,60%</td>
+						</tr>
+						<tr>
+							<td>36 mjeseca</td>
+							<td>0,80%</td>
+							<td>0,80%</td>
+						</tr>
+						<tr>
+							<td>48 mjeseca</td>
+							<td>1,00%</td>
+							<td>1,00%</td>
+						</tr>
+						<tr>
+							<td>60 mjeseca</td>
+							<td>1.30%</td>
+							<td>1,31%</td>
+						</tr>
+					</table>
+					<p>Kamatne stope na oročene depozite su fiksne<br><br>
+Kamatne stope za KM valutu se primjenjuju od 02.03.2015. godine na nova oročenja.<br><br>
+*EKS – Efektivna kamatna stopa</p>
 				</div>
-                <div class="kontakt_desno">
+				<div class="kontakt_desno">
                     <div class="kontakt_feed_desno">
                         <h4>Radno vrijeme</h4>
                         <div class="feed_content clock">

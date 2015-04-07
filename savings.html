@@ -5,6 +5,7 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="static/css/stil.css">
 		<link rel="icon" type="image/x-icon" href="static/images/icon.ico">
+		<script src="static/js/meni.js"></script>
 	</head>
 	<body>
 		<div class="okvir">
@@ -20,7 +21,12 @@
 				<div class="meni">
 					<ul>
 						<li><a href="index.html">Naslovnica</a></li>
-						<li class="fokus"><a href="savings.html">Štednja</a></li>
+						<li class="fokus padajuci"><a href="savings.html">Štednja</a>
+							<ul>
+								<li><a href="savings1.html">A Vista</a></li>
+								<li><a href="savings2.html">Dječija štednja</a></li>
+							</ul>
+						</li>
 						<li><a href="about.html">O nama</a></li>
 						<li><a href="contact.html">Kontakt</a></li>
 					</ul>
@@ -61,151 +67,14 @@
                         </div>
                     </div>
                 </div>
-				<div id="tabela">
-					<table id="stednja">
-						<caption>Pregled nominalnih kamatnih stopa na štednju građana u KM valuti</caption>
-						<colgroup>
-							<col id="prva">
-							<col id="druga">
-							<col id="treca">
-							<col id="cetvrta">
-						</colgroup>
-						<tr>
-							<th>ROK OROČENJA</th>
-							<th>IZNOS</th>
-							<th>GODIŠNJA NOM. <br>KAM. STOPA</th>
-							<th>EKS*</th>
-						</tr>
-						<tr>
-							<td>Depozit po viđenju</td>
-							<td>Svi iznosi</td>
-							<td>0.00%</td>
-							<td class="eks">0.00%</td>
-						</tr>
-						<tr>
-							<td>Oročeni depozit <br>na 6 mjeseci</td>
-							<td>Svi iznosi</td>
-							<td>0.05%</td>
-							<td class="eks">0.05%</td>
-						</tr>
-						<tr>
-							<td>Oročeni depozit <br>na 12 mjeseci</td>
-							<td class="iznos">	do 10.000 KM<br>
-									od 10.001 KM do 30.000 KM<br>
-									od 30.001 KM do 70.000 KM<br>
-									od 70.001 KM do 120.000 KM<br>
-									preko 120.000 KM
-							</td>
-							<td>
-								0,10%<br>
-								0,10%<br>
-								0,10%<br>
-								0,10%<br>
-								0,10%
-							</td>
-							<td class="eks">
-								0,10%<br>
-								0,10%<br>
-								0,10%<br>
-								0,10%<br>
-								0,10%
-							</td>
-						</tr>
-						<tr>
-							<td>Oročeni depozit <br>na 13 mjeseci</td>
-							<td class="iznos">	do 10.000 KM<br>
-									od 10.001 KM do 30.000 KM<br>
-									od 30.001 KM do 70.000 KM<br>
-									od 70.001 KM do 120.000 KM<br>
-									preko 120.000 KM
-							</td>
-							<td>
-								0,20%<br>
-								0,20%<br>
-								0,20%<br>
-								0,20%<br>
-								0,20%
-							</td>
-							<td class="eks">
-								0,20%<br>
-								0,20%<br>
-								0,20%<br>
-								0,20%<br>
-								0,20%
-							</td>
-						</tr>
-						<tr>
-							<td>Oročeni depozit <br>na 24 mjeseci</td>
-							<td class="iznos">	do 10.000 KM<br>
-									od 10.001 KM do 30.000 KM<br>
-									od 30.001 KM do 70.000 KM<br>
-									od 70.001 KM do 120.000 KM<br>
-									preko 120.000 KM
-							</td>
-							<td>
-								0,30%<br>
-								0,40%<br>
-								0,50%<br>
-								0,60%<br>
-								0,70%
-							</td>
-							<td class="eks">
-								0,30%<br>
-								0,40%<br>
-								0,50%<br>
-								0,60%<br>
-								0,70%
-							</td>
-						</tr>
-						<tr>
-							<td>Oročeni depozit <br>na 36 mjeseci</td>
-							<td class="iznos">	do 10.000 KM<br>
-									od 10.001 KM do 30.000 KM<br>
-									od 30.001 KM do 70.000 KM<br>
-									od 70.001 KM do 120.000 KM<br>
-									preko 120.000 KM
-							</td>
-							<td>
-								0,40%<br>
-								0,50%<br>
-								0,60%<br>
-								0,70%<br>
-								0,80%
-							</td>
-							<td class="eks">
-								0,40%<br>
-								0,50%<br>
-								0,60%<br>
-								0,70%<br>
-								0,80%
-							</td>
-						</tr>
-						<tr>
-							<td>Oročeni depozit <br>na 48 mjeseci i više</td>
-							<td class="iznos">	do 10.000 KM<br>
-									od 10.001 KM do 30.000 KM<br>
-									od 30.001 KM do 70.000 KM<br>
-									od 70.001 KM do 120.000 KM<br>
-									preko 120.000 KM
-							</td>
-							<td>
-								0,60%<br>
-								0,70%<br>
-								0,80%<br>
-								0,90%<br>
-								1,00%
-							</td>
-							<td class="eks">
-								0,60%<br>
-								0,70%<br>
-								0,80%<br>
-								0,90%<br>
-								1,00%
-							</td>
-						</tr>
-					</table>
+				<div class="stednja">
+					<p>Štednja</p>
+					<ul>
+						<li><a href="savings1.html">A Vista štednja</a></li>
+						<li><a href="savings2.html">Dječija štednja</a></li>
+					</ul>
 				</div>
-                <div class="kontakt_desno">
+				<div class="kontakt_desno">
                     <div class="kontakt_feed_desno">
                         <h4>Radno vrijeme</h4>
                         <div class="feed_content clock">
