@@ -143,7 +143,7 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 }
 .padajuci ul li a:hover {
 	color: firebrick;
-	background-color: whitesmoke;
+	background-color: ghostwhite;
 	border-bottom: 2px solid firebrick;
 }
 /*Sjena ispod menija*/
@@ -270,6 +270,13 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 	border: 1px solid;
 	border-radius: 3%;
 }
+.clanak > img:hover{
+-moz-transform: scale(2) translateX(22px) translateY(15px);
+-webkit-transform: scale(2) translateX(22px) translateY(15px);
+-o-transform: scale(2) translateX(22px) translateY(15px);
+-ms-transform: scale(2) translateX(22px) translateY(15px);
+transform: scale(2) translateX(22px) translateY(15px);
+}
 .clanak > p {
     font-family: 'Open Sans', sans-serif;
 	font-size: 90%;
@@ -284,6 +291,11 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 .clanak a:link, .clanak a:visited, .clanak a:active {
 	text-decoration: none;
 	color: crimson;
+}
+.clanak a:hover{
+	color: firebrick;
+	letter-spacing: 1px;
+	font-weight: 700;
 }
 .clanak .clanak_info {
 	margin: 0;
@@ -371,7 +383,7 @@ div.clanak > div.clanak_info{
 }
 .stednja > ul > li > a:hover{
 	border-bottom: 2px solid #2d97af;
-	color: #2d97af;
+	color: firebrick;
 }
 .stednja > h4,
 .stednja > p{
@@ -519,7 +531,18 @@ col#prva {
 	margin: 0;
     width: 35%;
 	padding: 0;
-	border-radius: 5px;
+	border-radius: 2px;
+	border: 1px solid #2d97af;
+	background-color: ghostwhite;
+	margin-bottom: 10px;
+	/*color: mediumspringgreen;*/
+	margin-right: 3px;
+	padding-left: 3px;
+}
+.kontakt p, .kontakt input[type="text"], 
+.kontakt input[type="email"], 
+.kontakt input[type="tel"]{
+	height: 30px;
 }
 .kontakt > form > input[type="range"]{
     width: 35%;
@@ -527,10 +550,26 @@ col#prva {
 .kontakt > form >input {
 	margin-bottom: 10px;
 }
+.kontakt > form > input[type="submit"] {
+	width: 100px;
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+	background-color: #2d97af;
+	letter-spacing: 1px;
+	border: 1px solid white;
+	border-radius: 3px;
+	padding: 10px 5px;
+	font-weight: 700;
+}
+.kontakt > form > input[type="submit"]:hover{
+	color: white;
+	border-color: white;
+	background-color: #51bbd2;
+}
 img.error_img {
     height: 23px;
     float: left;
-    margin-top: -3px;
+    margin-top: 2px;
     display: none;
 }
 .kontakt_desno {
@@ -554,7 +593,8 @@ img.error_img {
     width: 35%;
     text-align: right;
     margin-right: 5px;
-    margin-bottom: 10px;
+	padding-top: 5px;
+    /*margin-bottom: 10px;*/
 }
 .kontakt > form > label.iza {
     margin: 0;
@@ -565,6 +605,7 @@ img.error_img {
     text-align: left;
     color: red;
     font-size: 85%;
+	margin-top: 7px;
     display: block;
 }
 #upozorenje {
