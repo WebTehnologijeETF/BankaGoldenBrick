@@ -15,11 +15,6 @@ window.onload = function(){
 	var page = path.split("/").pop();
 	if(page=="contact.html"){
 		document.kontaktForma.telefon.setAttribute("placeholder", "+??? ?? ???-???");
-		/*var elementi = document.getElementsByTagName("input");
-		for(var i=0; i < elementi.length; i++){
-			if(elementi[i].getAttribute("type")!="range" && elementi[i].getAttribute("type")!="submit"){
-				
-		console.log(elementi);*/
 	}
 	var vrh = document.getElementsByClassName("vrh");
 	vrh = vrh[0];
@@ -32,7 +27,6 @@ window.onload = function(){
 }
 
 function prikaziPadajuci(obj){
-	//console.log(obj.children[1]);
 	obj.children[1].style.visibility="visible";
 }
 function sakrijPadajuci(obj){

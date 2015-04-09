@@ -8,10 +8,9 @@ html, body {
 } 
 
 body {
-	/*background: url(../images/pozadina.jpg) no-repeat center center fixed;
-	background-size: cover;*/
 	background-image: url(../images/pattern.png);
-	background-position-x: initial;
+	background-repeat: repeat;
+	/*background-position-x: initial;
 	background-position-y: initial;
 	background-size: initial;
 	background-repeat-x: initial;
@@ -19,7 +18,7 @@ body {
 	background-attachment: initial;
 	background-origin: initial;
 	background-clip: initial;
-	background-color: initial;
+	background-color: initial;*/
 }
 
 .okvir {
@@ -30,68 +29,30 @@ body {
 }
 .zaglavlje {
     width: 100%;
+	height: 46px;
     float: none;
-    overflow: auto;
-    background: #39b1cc;
-	background: -moz-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #51bbd2), color-stop(100%, #2d97af));
-	background: -webkit-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
-	background: -o-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
-	background: -ms-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
-	background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%);
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 1;
 }
 /*Logo*/
-.logo > a > h1 {
-	font-family: 'Dancing Script', cursive;
-	margin: 0 10px 0 0;
-	padding: 0;
-}
-div.logo > a:link, div.logo > a:visited, div.logo > a:active {
-	text-decoration: none;
-	color: white;
-	margin: 0;
-	padding: 0;
-}
 .spanLogo{
 	color: gold;
 }
 
-.logo > a{
-	float: left;
-	margin: 0;
-	padding: 0;
-}
-.logo {
-    float: left;
-    width: 24%;
-    border-right: 1px solid rgba(80, 80, 80, 0.12);
-    background: #39b1cc;
-	margin: 0;
-	background: -moz-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #51bbd2), color-stop(100%, #2d97af));
-	background: -webkit-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
-	background: -o-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
-	background: -ms-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
-	background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%);
-	padding: 5px;
-}
-.logo > a > img {
-    width: 33px;
-    height: auto;
-	margin-bottom: 0;
-	margin-top: 0;
-	padding: 0;
-    margin-right: 10px;
-    margin-left: 20px;
-}
 /*Navbar*/
 .meni {
 	font-family: 'Lato', sans-serif;
 	text-transform: uppercase;
-    float: left;
+    float: none;
 	margin: 0;
 	padding: 0;
-    width: 74.73%;
+    width: 1024px;
+	position: relative;
+	margin: 0 auto;
+	z-index: 1;
+	height: 46px;
 	background: #39b1cc;
 	background: -moz-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #51bbd2), color-stop(100%, #2d97af));
@@ -110,22 +71,16 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 	margin: 0;
 	padding: 0;
 }
-.meni > ul > li.padajuci > a:after{
-	/*color: #d3eced;
-   	content: ' ▾';*/
-}
 .meni ul > li > a:link, 
 .meni ul > li > a:visited, 
-.meni ul > li > a:active {
+.meni ul > li > a:active{
 	display: block;
 	margin: 0;
-	padding: 14px 20px 15px 20px;
+	padding: 13px 20px 13px 20px;
     border-right: 1px solid rgba(80, 80, 80, 0.12);
 	text-decoration: none;
-	/*font-size: 90%;*/
 	font-weight: 700;
 	color: #d3eced;
-	/*text-transform: uppercase;*/
 	letter-spacing: 1px;
 }
 .meni > ul > li:hover > a,
@@ -133,14 +88,10 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 	color: #ffffff;
 	background: #32a9c3;
 	background: rgba(0, 0, 0, 0.1);
-	/*padding-bottom: 12px;*/
-}/*
-.meni > ul > li:hover{
-	border-bottom: 3px solid white;
-}*/
+}
 .meni > ul > li.fokus > a {
 	color: gold;
-	padding-bottom: 12px;
+	padding-bottom: 10px;
 }
 .meni > ul > li.fokus{
 	border-bottom: 3px solid gold;
@@ -170,20 +121,18 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
     transition: all 0.15s;
 	border-radius: 10px;
 }
-::-webkit-input-placeholder { /* WebKit browsers */
-    color: #2d97af;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: #2d97af;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: #2d97af;
-}
-:-ms-input-placeholder { /* Internet Explorer 10+ */
-    color: #2d97af;
-}
-#search_text:focus {
-}
+	::-webkit-input-placeholder {
+		color: #2d97af;
+	}
+	:-moz-placeholder {
+		color: #2d97af;
+	}
+	::-moz-placeholder {
+		color: #2d97af;
+	}
+	:-ms-input-placeholder {
+		color: #2d97af;
+	}
 #search_button {
     border: 0 none;
     background: url('../images/search.png') center no-repeat;
@@ -196,9 +145,6 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
     cursor: pointer;
 	border-radius: 10px;
 }
-#search_button:hover{
-}
-
 /*Podmeni*/
 .padajuci > ul {
 	position:absolute;
@@ -217,7 +163,7 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 	width:auto;
 	border-top: 1px solid rgba(80, 80, 80, 0.12);
 	background-color: whitesmoke;
-	color: #32a9c3;
+	color: #32a9c3 !important;
 	border-left: 1px solid darkgrey; 
 	border-right: 1px solid darkgrey; 
 	border-bottom: 2px solid darkgrey; 
@@ -229,9 +175,32 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 	padding-top: 5px;
 }
 .padajuci ul li a:hover {
-	color: white;
+	color: white !important;
 	background-color: #32a9c3;
-	/*border-bottom: 2px solid white;*/
+}
+/*Logo*/
+.logoSlika {
+	background: url(../images/logo.png) no-repeat center;
+	background-size: contain;
+	height: 20px;
+	width: 20px;
+	border-right: none !important;
+}
+.logoSlika:hover {
+	background: url(../images/logo.png) no-repeat center !important;
+	background-size: contain !important;
+}
+.logo{
+	font-family: 'Dancing Script', cursive;
+	color: white !important;
+	text-transform: none;
+	font-size: 35px;
+	margin: 0 !important;
+	padding: 0 !important;
+	padding-right: 15px !important;
+}
+.logo:hover{
+	background: none !important;
 }
 /*Sjena ispod menija*/
 .sjena {     	
@@ -240,14 +209,9 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 }
 /*Sadržaj*/
 .sadrzaj {
-    /*position: relative;*/
-    /*background: -webkit-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%);
-    background:    -moz-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%);
-    background:     -ms-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%);
-    background:      -o-linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%);
-    background:         linear-gradient(90deg, #8e9eab 10%, #eef2f3 90%);*/
 	background-image: url(../images/brushed.png);
-	background-position-x: initial;
+	background-repeat: repeat;
+	/*background-position-x: initial;
 	background-position-y: initial;
 	background-size: initial;
 	background-repeat-x: initial;
@@ -255,11 +219,12 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 	background-attachment: initial;
 	background-origin: initial;
 	background-clip: initial;
-	background-color: initial;
+	background-color: initial;*/
     overflow: auto;
     font-family: 'Ubuntu', sans-serif;
     margin: 0;
     padding: 0;
+	margin-top: 46px;
 }
 /*Naslovnica*/
 .desno {
@@ -315,7 +280,6 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
     background-color: rgba(0, 0, 0, 0.1);
 }
 .social_feed {
-    border: 1px solid #2d97af;
     margin-bottom: 10px;
 	background-color: #2d97af;
     padding: 1px;
@@ -330,6 +294,8 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 }
 .social_feed > .social_feed_content {
     background-image: url(../images/kockice.png);
+    background-repeat: repeat;
+    /*
 	background-position-x: initial;
 	background-position-y: initial;
 	background-size: initial;
@@ -338,7 +304,7 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 	background-attachment: initial;
 	background-origin: initial;
 	background-clip: initial;
-	background-color: initial;
+	background-color: initial;*/
     margin-top: 1px;
     padding: 5px 5px 0 5px;
     border-radius: 2px;
@@ -366,6 +332,8 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 .clanak {
 	width: 95%;
 	background-image: url(../images/kockice.png);
+	background-repeat: repeat;
+	/*
 	background-position-x: initial;
 	background-position-y: initial;
 	background-size: initial;
@@ -374,7 +342,7 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 	background-attachment: initial;
 	background-origin: initial;
 	background-clip: initial;
-	background-color: initial;
+	background-color: initial;*/
 	border: 1px solid darkslategrey;
 	border-radius: 2px;
 	padding: 5px 10px 10px 10px;
@@ -390,19 +358,6 @@ div.logo > a:link, div.logo > a:visited, div.logo > a:active {
 	padding: 1px;
 	border: 2px solid #2d97af;
 	border-radius: 3%;
-}
-.clanak > img:hover{
-	/*-moz-transform: scale(2) translateX(22px) translateY(15px);
-	-webkit-transform: scale(2) translateX(22px) translateY(15px);
-	-o-transform: scale(2) translateX(22px) translateY(15px);
-	-ms-transform: scale(2) translateX(22px) translateY(15px);
-	transform: scale(2) translateX(22px) translateY(15px);
-	width: 35%;
-	/*-webkit-transition: all 300ms linear;
--moz-transition: all 300ms linear;
--ms-transition: all 300ms linear;
--o-transition: all 300ms linear;
-transition: all 300ms linear;*/
 }
 .clanak > p {
     font-family: 'Ubuntu', sans-serif;
@@ -445,11 +400,6 @@ img.author{
 	float: right;
 }
 .clanak a:hover{
-/*
-	color: firebrick;
-	letter-spacing: 1px;
-	font-weight: 700;
-*/
 	color: #2d97af;
 	background-color: white;
 }
@@ -618,6 +568,8 @@ col#prva {
 .feed_content {
     margin: 1px;
     background-image: url(../images/kockice.png);
+    background-repeat: repeat;
+    /*
 	background-position-x: initial;
 	background-position-y: initial;
 	background-size: initial;
@@ -626,7 +578,7 @@ col#prva {
 	background-attachment: initial;
 	background-origin: initial;
 	background-clip: initial;
-	background-color: initial;
+	background-color: initial;*/
     padding: 10px;
     border-radius: 3px;
 }
@@ -647,6 +599,8 @@ col#prva {
 .about_centar_content {
     padding: 0 15px 15px 15px;
     background-image: url(../images/kockice.png);
+    background-repeat: repeat;
+    /*
 	background-position-x: initial;
 	background-position-y: initial;
 	background-size: initial;
@@ -655,7 +609,7 @@ col#prva {
 	background-attachment: initial;
 	background-origin: initial;
 	background-clip: initial;
-	background-color: initial;
+	background-color: initial;*/
     color: dimgray;
     font-size: 90%;
     border: 2px solid #2d97af;
@@ -671,12 +625,12 @@ col#prva {
 }
 /*Partneri*/
 .linkovi {
-    border: 1px solid #2d97af;
 	background-color: #2d97af;
     margin: 0;
     padding: 0;
     border-radius: 3px;
     overflow: auto;
+    padding: 1px;
 }
 .linkovi > h3 {
     margin: 0;
@@ -687,6 +641,8 @@ col#prva {
 }
 .linkovi_content {
     background-image: url(../images/kockice.png);
+    background-repeat: repeat;
+    /*
 	background-position-x: initial;
 	background-position-y: initial;
 	background-size: initial;
@@ -695,7 +651,7 @@ col#prva {
 	background-attachment: initial;
 	background-origin: initial;
 	background-clip: initial;
-	background-color: initial;
+	background-color: initial;*/
     color: slategray;
     font-size: 90%;
     margin: 0;
@@ -733,7 +689,6 @@ col#prva {
 	border: 1px solid #2d97af;
 	background-color: ghostwhite;
 	margin-bottom: 10px;
-	/*color: mediumspringgreen;*/
 	margin-right: 3px;
 	padding-left: 3px;
 }
@@ -762,7 +717,6 @@ col#prva {
 .kontakt > form > input[type="submit"]:hover{
 	color: gold;
 	border-color: gold;
-/*	background-color: #51bbd2;*/
 }
 img.error_img {
     height: 23px;
@@ -844,11 +798,11 @@ div.kontakt_feed > .feed_content > p {
     color: grey;
 }
 .kontakt_feed {
-    border: 1px solid #2d97af;
 	background-color: #2d97af;
     border-radius: 2px;
     padding: 0;
     margin-bottom: 10px;
+    padding-bottom: 1px;
 }
 .kontakt_feed_desno > h4 {
     color: white;
@@ -865,11 +819,11 @@ div.kontakt_feed_desno > .feed_content > p {
     color: grey;
 }
 .kontakt_feed_desno {
-    border: 1px solid #2d97af;
     background-color: #2d97af;
 	border-radius: 2px;
     padding: 0;
     margin-bottom: 10px;
+    padding-bottom: 1px;
 }
 .obavezno {
     color: red;
@@ -913,22 +867,49 @@ div.kontakt_feed_desno > .feed_content > p {
     .kontakt {
         width: 60%;
     }
-    .logo > a > h1 {
-        margin: 3px 5px 0 0;
-        font-size: 140%;
-    }
-    .logo {
-        width: 22%;
-        padding: 5.1px;
-    }
-    .logo > a > img {
-        width: 38px;
-        height: auto;
-        margin-right: 5px;
-        margin-left: 10px;
-    }
+	.zaglavlje{
+		height: 32px;
+	}
     .meni {
+		height: 32px;
+		width: 770px;
+		font-size: 80%;
     }
+	.sadrzaj{
+		margin-top: 32px;
+	}
+	.meni ul > li > a:link, 
+	.meni ul > li > a:visited, 
+	.meni ul > li > a:active {
+		padding: 6px 10px 7px 10px;
+		border-right: 1px solid rgba(80, 80, 80, 0.12);
+		font-weight: 700;
+		color: #d3eced;
+		letter-spacing: 1px;
+	}
+	
+	#search{
+		width: 130px;
+		height: 22px;
+	}
+	#search_text{
+		font-size: 80%;
+		width: 70%;
+		height: 22px;
+	}
+	#search_button{
+		width: 30%;
+		height: 22px;
+	}
+	.logoSlika {
+	height: 15px;
+	}
+	.logo{
+		font-size: 25px;
+	}
+	.logo:hover{
+		background: none !important;
+	}
     .p_minimize {
         font-size: 60%;
     }

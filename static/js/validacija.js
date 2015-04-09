@@ -1,9 +1,9 @@
 function validacija(){
     //Provjera da li su obavezna polja popunjena
-	var elements = document.getElementsByTagName("input");
+	var elements = document.kontaktForma.getElementsByTagName("input");
 	for (var i = 0; i < elements.length; i++){
 		if(elements[i].getAttribute("type") != "submit" && elements[i].getAttribute("type") != "range"
-		  && elements[i].getAttribute("type") != "button" && elements[i].getAttribute("name")!="search_text"){
+		  && elements[i].getAttribute("type") != "button"){
 			elements[i].style.outline="none";
 			elements[i].addEventListener("input", function(){
 			if(validiraj(this, false))
@@ -177,7 +177,6 @@ function validiraj(el, ispis){
 			}
 		}
 	}
-	//console.log(el);
 	el.classList.remove("nevaljao");
 	var ime = el.getAttribute("name") + "_error";
 	var slika = document.getElementById(ime);
