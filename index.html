@@ -16,7 +16,7 @@
 						<img src="static/images/logo.png" alt="cache logo">
 					</a>
 					<a href="index.html">
-						<h1>GoldenBrick</h1>
+						<h1><span class="spanLogo">G</span>olden<span class="spanLogo">B</span>rick</h1>
 					</a>
 				</div>
 				<div class="meni">
@@ -30,6 +30,12 @@
 						</li>
 						<li><a href="about.html">O nama</a></li>
 						<li><a href="contact.html">Kontakt</a></li>
+						<li id="search">
+							<form action="" method="get">
+								<input type="text" name="search_text" id="search_text" placeholder="Pretraži"/>
+								<input type="button" name="search_button" id="search_button"></a>
+							</form>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -67,6 +73,15 @@
                             <p><b>+387 33 00 01 12</b></p>
                         </div>
                     </div>
+					<div class="kontakt_feed">
+                        <h4>Radno vrijeme</h4>
+                        <div class="feed_content clock">
+                            <p><b>Sve poslovnice</b></p>
+                            <br>
+                            <p>Radni dan: od 8 do 16 sati</p>
+                            <p>Subota: od 9 do 13 sati</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="centar">
                 <div class="uvod_centar"><h3>Novosti</h3></div>
@@ -74,10 +89,10 @@
 					<h3>GoldenBrick e-pay</h3>
 					<br>
 					<div class="clanak_info">
-						<p class="autor"><small>Muhamed Mujić</small></p>
-						<p class="vrijeme"><small>21. III 2015.</small></p>
+						<p class="autor"><img src="static/images/author.png" alt="autor" class="author"><small>Muhamed Mujić</small></p>
+						<p class="vrijeme"><img src="static/images/date.png" alt="datum" class="datum"><small>21. III 2015.</small></p>
 					</div>
-					<img src="http://www.rtctel.com/img/home-epay-banner-384.jpg" alt="slika clanka">
+					<img src="static/images/clanak1.jpg" alt="slika clanka">
 					<p>
 						GoldenBrick e-pay je nova usluga GoldenBrick banke koja omogućava elektronsku trgovinu uz prihvat MasterCard i Visa kartica prema najvišim svjetskim standardima sigurnosti.
 <br><br>
@@ -93,8 +108,8 @@
 					<h3>GOTOVINSKI KREDITI GOLDENBRICK BANKE UZ FIKSNU KAMATNU STOPU OD 5,89%</h3>
 					<br>
 					<div class="clanak_info">
-						<p class="autor"><small>Muhamed Mujić</small></p>
-						<p class="vrijeme"><small>19. III 2015.</small></p>
+						<p class="autor"><img src="static/images/author.png" alt="autor" class="author"><small>Muhamed Mujić</small></p>
+						<p class="vrijeme"><img src="static/images/date.png" alt="datum" class="datum"><small>19. III 2015.</small></p>
 					</div>
 					<img src="http://www.infobih.com/slike/201012141407350.1149584191_euro_frankfurt_banka_znak.jpg" alt="gotovniski kredit">
 					<p>
@@ -109,8 +124,8 @@
 					<h3>NENAMJENSKI KREDIT GOLDENBRICK BANKE SA KAMATNOM STOPOM OD 6,00% I ROKOM OTPLATE DO 6 GODINA</h3>
 					<br>
 					<div class="clanak_info">
-						<p class="autor"><small>Muhamed Mujić</small></p>
-						<p class="vrijeme"><small>16. III 2015.</small></p>
+						<p class="autor"><img src="static/images/author.png" alt="autor" class="author"><small>Muhamed Mujić</small></p>
+						<p class="vrijeme"><img src="static/images/date.png" alt="datum" class="datum"><small>16. III 2015.</small></p>
 					</div>
 					<p>
 						<b>Otvorite prozor svojih mogućnosti uz nenamjenski kredit 6 na 6, je nova jesenja kampanja GoldenBrick Banke BiH. Banka je proširila svoju ponudu za klijente koji trebaju dodatna finansijska sredstva ove jeseni uz što niže troškove.</b>
@@ -131,8 +146,8 @@
 					<h3>Zamjenski kredit - najduži rok otplate</h3>
 					<br>
 					<div class="clanak_info">
-						<p class="autor"><small>Muhamed Mujić</small></p>
-						<p class="vrijeme"><small>14. III 2015.</small></p>
+						<p class="autor"><img src="static/images/author.png" alt="autor" class="author"><small>Muhamed Mujić</small></p>
+						<p class="vrijeme"><img src="static/images/date.png" alt="datum" class="datum"><small>14. III 2015.</small></p>
 					</div>
 					<img src="http://www.rb-laa.at/eBusiness/services/resources/media/1018580211793-1020372206860_866716176737154511-674873145785629777-1-30-NA.jpeg" alt="zamjenski krediti">
 					<p>
@@ -152,8 +167,8 @@
 					<h3>GOLDENBRICK PRVA BANKA NA TRŽIŠTU KOJA NUDI USLUGU FAKTORINGA ZA PRAVNA LICA</h3>
 					<br>
 					<div class="clanak_info">
-						<p class="autor"><small>Muhamed Mujić</small></p>
-						<p class="vrijeme"><small>10. II 2015.</small></p>
+						<p class="autor"><img src="static/images/author.png" alt="autor" class="author"><small>Muhamed Mujić</small></p>
+						<p class="vrijeme"><img src="static/images/date.png" alt="datum" class="datum"><small>10. II 2015.</small></p>
 					</div>
 					<img src="http://livinginchiangmai.com/wp-content/uploads/2014/12/banking.png" alt="faktoring">
 					<p>
@@ -167,13 +182,21 @@
 				</div>
 			</div>
             <div class="desno">
-                <div class="feed">
-                    <img class="img_feed" src="static/images/feed1.jpg" alt="feed image 1">
-                    <p class="img_p"><span>Zimska akcija štednje</span></p>
+				<div class="feed">
+                    <img class="img_feed" src="static/images/feed4.jpg" alt="feed image 4">
+                    <p><span>Najniže kamatne stope<br>na stambene kredite</span></p>
                 </div>
                 <div class="feed">
-                    <img class="img_feed" src="static/images/feed2.jpg" alt="feed image 1">
+                    <img class="img_feed" src="static/images/feed2.jpg" alt="feed image 2">
                     <p><span>Vaša banka na <br>Vašem radnom mjestu</span></p>
+                </div>
+				<div class="feed">
+                    <img class="img_feed" src="static/images/feed3.jpg" alt="feed image 3">
+                    <p><span>Proljetna akcija <br>kreditnog bankarstva</span></p>
+                </div>
+				<div class="feed">
+                    <img class="img_feed" src="static/images/feed1.jpg" alt="feed image 1">
+                    <p class="img_p"><span>Zimska akcija štednje</span></p>
                 </div>
             </div>
             <div style="clear:both;"></div>
