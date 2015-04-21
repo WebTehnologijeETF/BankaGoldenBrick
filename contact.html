@@ -7,6 +7,7 @@
         <link rel="icon" type="image/x-icon" href="static/images/icon.ico">
         <script src="static/js/validacija.js"></script>
 		<script src="static/js/meni.js"></script>
+        <script src="static/js/loadAjax.js"></script>
 	</head>
 	<body>
 		<div class="okvir">
@@ -22,10 +23,11 @@
 						<li><a href="index.html">Naslovnica</a></li>
 						<li class="padajuci"><a href="savings.html">Štednja</a>
 							<ul>
-								<li><a href="savings1.html">A Vista</a></li>
-								<li><a href="savings2.html">Dječija štednja</a></li>
+								<li><a href="savings1.html" class="ajaxLoaderLink meniLink">A Vista</a></li>
+								<li><a href="savings2.html" class="ajaxLoaderLink meniLink">Dječija štednja</a></li>
 							</ul>
 						</li>
+                        <li><a href="services.html">Usluge</a></li>
 						<li><a href="about.html">O nama</a></li>
 						<li class="fokus"><a href="contact.html">Kontakt</a></li>
 						<li id="search">
@@ -83,6 +85,14 @@
                             <input type="text" name="prezime" class="obavezan">
                             <img src="static/images/error.png" alt="greska" class="error_img" id="prezime_error">
 							<label class="iza" id="prezime_greska"></label>
+                       <label class="ispred">Općina</label>
+                            <input type="text" name="opcina">
+                            <img src="static/images/error.png" alt="greska" class="error_img" id="opcina_error">
+                            <label class="iza" id="opcina_greska"></label>
+                        <label class="ispred">Mjesto</label>
+                            <input type="text" name="mjesto">
+                            <img src="static/images/error.png" alt="greska" class="error_img" id="mjesto_error">
+                            <label class="iza" id="mjesto_greska"></label>
                         <label class="ispred">Adresa</label>
                             <input type="text" name="adresa">
                             <img src="static/images/error.png" alt="greska" class="error_img" id="adresa_error">  

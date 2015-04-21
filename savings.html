@@ -6,6 +6,17 @@
 		<link rel="stylesheet" type="text/css" href="static/css/stil.css">
 		<link rel="icon" type="image/x-icon" href="static/images/icon.ico">
 		<script src="static/js/meni.js"></script>
+        <script src="static/js/loadAjax.js"></script>
+        <style type="text/css">
+            .ajaxDiv{
+                width: 110%;
+                margin-left: -60px;
+                display: none;
+            }
+            .ajaxUl li{
+                list-style-image: url("static/images/plus2.png");
+            }
+        </style>
 	</head>
 	<body>
 		<div class="okvir">
@@ -21,10 +32,11 @@
 						<li><a href="index.html">Naslovnica</a></li>
 						<li class="fokus padajuci"><a href="savings.html">Štednja</a>
 							<ul>
-								<li><a href="savings1.html">A Vista</a></li>
-								<li><a href="savings2.html">Dječija štednja</a></li>
+								<li><a href="savings1.html" class="ajaxLoaderLink meniLink">A Vista</a></li>
+								<li><a href="savings2.html" class="ajaxLoaderLink meniLink">Dječija štednja</a></li>
 							</ul>
 						</li>
+                        <li><a href="services.html">Usluge</a></li>
 						<li><a href="about.html">O nama</a></li>
 						<li><a href="contact.html">Kontakt</a></li>
 						<li id="search">
@@ -73,9 +85,11 @@
                 </div>
 				<div class="stednja">
 					<p>Štednja</p>
-					<ul>
-						<li><a href="savings1.html">A Vista štednja</a></li>
-						<li><a href="savings2.html">Dječija štednja</a></li>
+					<ul class="ajaxUl">
+						<li><a href="savings1.html" class="ajaxLoaderLink">A Vista štednja</a></li>
+                            <div id="savings1" class="ajaxDiv closed"></div>
+						<li><a href="savings2.html" class="ajaxLoaderLink">Dječija štednja</a></li>
+                            <div id="savings2" class="ajaxDiv closed"></div>
 					</ul>
 				</div>
 				<div class="kontakt_desno">

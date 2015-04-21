@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GoldenBrick | Usluge</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="static/css/stil.css">
+    <link rel="icon" type="image/x-icon" href="static/images/icon.ico">
+    <style type="text/css">
+        #message{
+            position: fixed;
+            z-index: 1;
+            right: 5%;
+            top: 40%;
+            background-color: #58bd56;
+            width: 160px;
+            overflow: auto;
+            border-radius: 15px;
+            border: 1px solid white;
+            visibility:hidden;
+            opacity:0;
+            transition:opacity 0.5s linear;
+
+        }
+        #message > p{
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 10 20px;
+        }
+    </style>
+    <script src="static/js/meni.js"></script>
+    <script src="static/js/loadAjax.js"></script>
+    <script src="static/js/tabMenu.js"></script>
+    <script src="static/js/validacijaUsluge.js"></script>
+</head>
+<body>
+<div id="message"></div>
+<div class="okvir">
+    <div class="zaglavlje">
+        <div class="meni">
+            <ul>
+                <li>
+                    <a href="index.html"  class="logoSlika"></a>
+                </li>
+                <li>
+                    <a href="index.html"  class="logo"><span class="spanLogo">G</span>olden<span class="spanLogo">B</span>rick</a>
+                </li>
+                <li><a href="index.html">Naslovnica</a></li>
+                <li class="padajuci"><a href="savings.html">Štednja</a>
+                    <ul>
+                        <li><a href="savings1.html" class="ajaxLoaderLink meniLink">A Vista</a></li>
+                        <li><a href="savings2.html" class="ajaxLoaderLink meniLink">Dječija štednja</a></li>
+                    </ul>
+                </li>
+                <li class="fokus"><a href="services.html">Usluge</a></li>
+                <li><a href="about.html">O nama</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+                <li id="search">
+                    <form method="get">
+                        <input type="text" name="search_text" id="search_text" placeholder="Pretraži"/>
+                        <input type="button" name="search_button" id="search_button" value=" ">
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="sjena"></div>
+    <div class="sadrzaj">
+        <div class="lijevo">
+            <div class="social_feed">
+                <h4>Pratite nas</h4>
+                <div class="social_feed_content">
+                    <a href="http://facebook.com" target="_blank"><img src="static/images/facebook.png" alt="facebook"></a>
+                    <a href="http://twitter.com" target="_blank"><img src="static/images/twitter.png" alt="twitter"></a>
+                    <a href="http://plus.google.com" target="_blank"><img src="static/images/google+.png" alt="google plus"></a>
+                    <a href="http://youtube.com" target="_blank"><img src="static/images/youtube.png" alt="youtube"></a>
+                    <a href="http://pinterest.com" target="_blank"><img src="static/images/pinterest.png" alt="pinterest"></a>
+                </div>
+            </div>
+            <div class="kontakt_feed">
+                <h4>Kontakt</h4>
+                <div class="feed_content">
+                    <p><b>GoldenBrick Banka</b></p>
+                    <p><b>Bosna i Hercegovina</b></p>
+                    <br>
+                    <p>Zmaja od Bosne, 4</p>
+                    <p>71 000 Sarajevo</p>
+                    <p>Bosna i Hercegovina</p>
+                    <br>
+                    <p><b>GoldenBrick direct info</b></p>
+                    <br>
+                    <p><b>+387 33 00 01 11</b></p>
+                    <br>
+                    <p><b>E-mail</b></p>
+                    <p><span class="p_minimize">info.gbbih@goldenbrick.ba</span></p>
+                    <br>
+                    <p><b>Faks</b></p>
+                    <p><b>+387 33 00 01 12</b></p>
+                </div>
+            </div>
+            <div class="kontakt_feed">
+                <h4>Radno vrijeme</h4>
+                <div class="feed_content clock">
+                    <p><b>Sve poslovnice</b></p>
+                    <br>
+                    <p>Radni dan: od 8 do 16 sati</p>
+                    <p>Subota: od 9 do 13 sati</p>
+                </div>
+            </div>
+        </div>
+        <div id="usluge">
+            <div id="nav">
+            <ul class="tabMenu">
+                <li class="active"><a href="viewServices.html" class="tabAnchor">Pregled i brisanje usluge</a></li>
+                <li><a href="addService.html" class="tabAnchor">Dodavanje usluge</a></li>
+                <li><a href="changeService.html" class="tabAnchor">Modifikacija usluge</a></li>
+            </ul>
+            </div> <!-- nav -->
+            <div id="content"></div>
+        </div>
+        <!--<div class="kontakt_desno">
+            <div class="kontakt_feed_desno">
+                <h4>Radno vrijeme</h4>
+                <div class="feed_content clock">
+                    <p><b>Sve poslovnice</b></p>
+                    <br>
+                    <p>Radni dan: od 8 do 16 sati</p>
+                    <p>Subota: od 9 do 13 sati</p>
+                </div>
+            </div>
+            <div class="kontakt_feed_desno">
+                <h4>Poslovnica</h4>
+                <div class="feed_content">
+                    <p><b>Filijala Sarajevo </b></p>
+                    <br>
+                    <p>Trg djece Sarajeva, 11</p>
+                    <p>71 000 Sarajevo</p>
+                    <p>Bosna i Hercegovina</p>
+                    <br>
+                    <p><b>GoldenBrick direct info</b></p>
+                    <br>
+                    <p><b>+387 33 00 01 13</b></p>
+                    <br>
+                    <p><b>E-mail</b></p>
+                    <p><span class="p_minimize">sarajevo@goldenbrick.ba</span></p>
+                    <br>
+                    <p><b>Faks</b></p>
+                    <p><b>+387 33 00 01 14</b></p>
+                </div>
+            </div>
+        </div>-->
+    </div>
+    <div class="podnozje">
+        <p>&copy; 2015 GoldenBricks, Sva prava pridržana.</p>
+    </div>
+</div>
+<div class="vrh">
+    <a href="#"><img src="static/images/vrh.png" alt="Idi na vrh"></a>
+</div>
+</body>
+</html>

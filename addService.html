@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <style>
+        .kontakt{
+            width: 100%;
+        }
+    </style>
+    <script src="static/js/validacijaUsluge.js"></script>
+</head>
+<body>
+    <div class="kontakt">
+        <h3>&nbsp;Unos usluge</h3>
+        <form name="kontaktForma" onsubmit="return validacija('not');">
+            <label class="ispred">Naziv usluge<span class="obavezno">&#42;</span></label>
+            <input type="text" name="naziv" class="obavezan">
+            <img src="static/images/error.png" alt="greska" class="error_img" id="naziv_error">
+            <label class="iza" id="naziv_greska"></label>
+            <label class="ispred">Opis Usluge<span class="obavezno">&#42;</span></label>
+            <textarea cols="25" rows="5" placeholder=" Unesite Vašu poruku..." class="obavezan" name="opis"></textarea>
+            <img src="static/images/error.png" alt="greska" class="error_img" id="opis_error">
+            <label class="iza" id="opis_greska"></label>
+            <label class="ispred">Slika</label>
+            <input type="text" name="slika">
+            <img src="static/images/error.png" alt="greska" class="error_img" id="slika_error">
+            <label class="iza" id="slika_greska"></label>
+            <label class="ispred">URL</label>
+            <input type="text" name="url">
+            <img src="static/images/error.png" alt="greska" class="error_img" id="url_error">
+            <label class="iza" id="url_greska"></label>
+            <label class="ispred">Cijena</label>
+            <input type="number" name="cijena">
+            <img src="static/images/error.png" alt="greska" class="error_img" id="cijena_error">
+            <label class="iza" id="cijena_greska"></label>
+            <label id="upozorenje">&#42;&nbsp;Polja označena zvjezdicom su obavezna.</label>
+            <label class="ispred">&nbsp;</label><input type="submit" name="posalji" value="Pošalji">
+        </form>
+    </div>
+</body>
+</html>

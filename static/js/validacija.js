@@ -117,7 +117,76 @@ function validiraj(el, ispis){
 					prikaziGresku(ulaz, "Pogrešno prezime!");
 				return false;
 			}
-		}
+		}if(el.getAttribute("name")=="opcina"){
+            //Validacija opcine (samo znakovi) + Ajax validacija
+            ulaz = document.kontaktForma.opcina;
+            if(ulaz.value != null && ulaz.value != ""){
+                reg = /^[a-zćčđšž\s]{4,}$/i;
+                if(!reg.test(ulaz.value)){
+                    if(ispis)
+                        prikaziGresku(ulaz, "Pogrešna općina!");
+                    return false;
+                }
+                var ajax = new XMLHttpRequest();
+                ajax.onreadystatechange = function () {
+                    if(ajax.readyState == 4 && ajax.status == 200){
+                        var obj = JSON.parse(ajax.responseText);
+                        if(obj.hasOwnProperty("greska") && obj.greska == "Nepostojeća općina"){
+                            prikaziGresku(ulaz, obj["greska"]);
+                            return false;
+                        }
+                    }
+                    if(ajax.readyState == 4 && ajax.status == 404){
+                        console.log("Pogrešan URL!");
+                    }
+                }
+                var opc = ulaz.value;
+                opc = encodeURIComponent(opc);
+                var url = 'http://zamger.etf.unsa.ba/wt/mjesto_opcina.php?opcina='+opc+'&mjesto=nebitno';
+                ajax.open("GET", url, true);
+                ajax.send();
+            }
+        }if(el.getAttribute("name")=="mjesto"){
+            //Validacija mjesta (samo slova) kao i postojanje preko Ajaxa
+            var opc = document.kontaktForma.opcina.value;
+            ulaz = document.kontaktForma.mjesto;
+            if(opc==null || opc==""){
+                prikaziGresku(document.kontaktForma.opcina, "Općina je obavezna!")
+                return false;
+            }
+            if(ulaz.value != null && ulaz.value != ""){
+                reg = /^[a-zćčđšž]{4,}$/i;
+                if(!reg.test(ulaz.value)){
+                    if(ispis)
+                        prikaziGresku(ulaz, "Pogrešno mjesto!");
+                    return false;
+                }
+            }
+            var ajax = new XMLHttpRequest();
+            ajax.onreadystatechange = function () {
+                if(ajax.readyState == 4 && ajax.status == 200){
+                    var obj = JSON.parse(ajax.responseText);
+                    if(obj.hasOwnProperty("greska") && obj.greska == "Nepostojeće mjesto"){
+                        prikaziGresku(ulaz, obj["greska"]);
+                        return false;
+                    }
+                    else if(obj.hasOwnProperty("greska") && obj.greska == "Mjesto nije iz date općine"){
+                        prikaziGresku(ulaz, obj["greska"]);
+                        return false;
+                    }
+                }
+                if(ajax.readyState == 4 && ajax.status == 404){
+                    console.log("Pogrešan URL!");
+                }
+            }
+            var opc = document.kontaktForma.opcina.value;
+            opc = encodeURIComponent(opc);
+            var mjesto = document.kontaktForma.mjesto.value;
+            mjesto = encodeURIComponent(mjesto);
+            var url = 'http://zamger.etf.unsa.ba/wt/mjesto_opcina.php?opcina='+opc+'&mjesto='+mjesto;
+            ajax.open("GET", url, true);
+            ajax.send();
+        }
 		if(el.getAttribute("name")=="adresa"){
 			//Validacija adrese (slova i brojevi sa razmacima)
 			ulaz = document.kontaktForma.adresa;

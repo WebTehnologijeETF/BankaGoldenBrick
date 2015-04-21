@@ -76,7 +76,7 @@ body {
 .meni ul > li > a:active{
 	display: block;
 	margin: 0;
-	padding: 13px 20px 13px 20px;
+	padding: 13px 15px 13px 15px;
     border-right: 1px solid rgba(80, 80, 80, 0.12);
 	text-decoration: none;
 	font-weight: 700;
@@ -103,10 +103,10 @@ body {
 	border-radius: 10px;
 	padding: 0;
 	background: whitesmoke;
-	width: 230px;
+	width: 200px;
 }
 #search_text{
-    width: 180px;
+    width: 150px;
     padding: 5px 0 5px 10px;
     font-size: 15px;
     font-family: 'Ubuntu', sans-serif;
@@ -478,7 +478,6 @@ div.clanak > div.clanak_info{
     margin-top: 25px;
 	padding-left: 35px;
 }
-
 .stednja p{
 	font-family: 'Ubuntu', sans-serif;
 }
@@ -488,11 +487,10 @@ div.clanak > div.clanak_info{
 .stednja > ul > li > a:link,
 .stednja > ul > li > a:visited{
 	text-decoration: none;
-	color: black;
+	color: #39b1cc;
 }
 .stednja > ul > li > a:hover{
 	border-bottom: 2px solid #2d97af;
-	color: #2d97af;
 }
 .stednja > h4,
 .stednja > p{
@@ -547,7 +545,7 @@ table#stednja td {
 table#stednja th {
     font-size: 70%;
 }
-td:hover {
+#stednja > tr > td:hover {
 	background-color: rgba(0, 0, 0, 0.1);
 }
 td.iznos {
@@ -680,6 +678,7 @@ col#prva {
 .kontakt p, .kontakt input[type="text"], 
 .kontakt input[type="email"], 
 .kontakt input[type="tel"],
+.kontakt input[type="number"],
 .kontakt textarea {
     font-family: 'Ubuntu', sans-serif;
 	margin: 0;
@@ -694,7 +693,8 @@ col#prva {
 }
 .kontakt p, .kontakt input[type="text"], 
 .kontakt input[type="email"], 
-.kontakt input[type="tel"]{
+.kontakt input[type="tel"],
+.kontakt input[type="number"]{
 	height: 30px;
 }
 .kontakt > form > input[type="range"]{
@@ -845,8 +845,108 @@ div.kontakt_feed_desno > .feed_content > p {
     width: 100%;
     display: inline;
 }
+/* Usluge */
+#usluge{
+    float: left;
+    width: 75%;
+    overflow: auto;
+    margin: 5px;
+    margin-top: 25px;
+}
+#nav{
+    overflow: auto;
+}
+.tabMenu{
+    list-style-type: none;
+    width: 66.4%;
+    overflow: auto;
+    background-color: #ffffff;
+    padding: 0;
+    border-left: 1px solid #39b1cc;
+    border-top: 1px solid #39b1cc;
+    border-bottom: 1px solid #39b1cc;
+    margin-bottom: 0;
+}
+.tabMenu > li{
+    float: left;
+    padding: 10px;
+    border-right: 1px solid #39b1cc;
+    margin: 0;
+}
+.active{
+    background-color: #f5f5f5;
+}
+.tabMenu > li > a:link,
+.tabMenu > li > a:visited,
+.tabMenu > li > a:active{
+    display: block;
+    text-decoration: none;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+.tabMenu > li > a:hover{
+    color: gold;
+}
+#content{
+    margin: 0;
+    background-color: #ffffff;
+    overflow: auto;
+    border: 1px solid #39b1cc;
+    padding: 10px;
+    padding-right: 0;
+}
+.servicesTable{
+    table-layout: fixed;
+}
+.servicesTable tr td{
+    word-break: break-all;
+}
+#col1{
+    width: 15%;
+}
+#col2{
 
-
+}
+#col3{
+    width: 30%;
+}
+#col4{
+    width: 20%;
+}
+#col5{
+    width: 7%;
+}
+#col6{
+    width: 5%;
+}
+.servicesTable tr td.noBorder a img{
+    height: 20px;
+}
+.servicesTable tr td.slikaTd img{
+    width: 100%;
+    margin: 0;
+}
+.servicesTable tr td.slikaTd img:hover{
+    -moz-transform: scale(1.4);
+    -webkit-transform: scale(1.4);
+    -o-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    transform: scale(1.4);
+}
+.slikaTd{
+    padding: 0 !important;
+}
+.servicesTable,
+.servicesTable tr{
+    border: none !important;
+}
+.noBorder{
+    border: none !important;
+    background-color: #ffffff !important;
+    width: 20px;
+    padding: 0;
+}
 /*Responsive CSS*/
 @media (max-width:1024px) {
     .okvir {
@@ -889,7 +989,7 @@ div.kontakt_feed_desno > .feed_content > p {
 	}
 	
 	#search{
-		width: 130px;
+		width: 180px;
 		height: 22px;
 	}
 	#search_text{
