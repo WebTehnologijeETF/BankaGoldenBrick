@@ -703,7 +703,9 @@ col#prva {
 .kontakt > form >input {
 	margin-bottom: 10px;
 }
-.kontakt > form > input[type="submit"] {
+.kontakt > form > input[type="submit"],
+input[type="reset"],
+input[type="button"]{
 	width: 100px;
 	font-family: 'Ubuntu', sans-serif;
 	color: white;
@@ -714,7 +716,9 @@ col#prva {
 	padding: 10px 5px;
 	font-weight: 700;
 }
-.kontakt > form > input[type="submit"]:hover{
+.kontakt > form > input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover{
 	color: gold;
 	border-color: gold;
 }

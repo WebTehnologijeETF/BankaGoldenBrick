@@ -259,7 +259,7 @@ function changeService(ev, anchor, product){
         '<img src="static/images/error.png" alt="greska" class="error_img" id="naziv_error">' +
         '<label class="iza" id="naziv_greska"></label>' +
         '<label class="ispred">Opis Usluge<span class="obavezno">&#42;</span></label>' +
-        '<textarea cols="25" rows="5" placeholder=" Unesite Vašu poruku..." class="obavezan" name="opis"></textarea>' +
+        '<textarea cols="25" rows="5" placeholder=" Unesite opis usluge..." class="obavezan" name="opis"></textarea>' +
         '<img src="static/images/error.png" alt="greska" class="error_img" id="opis_error">' +
         '<label class="iza" id="opis_greska"></label>' +
         '<label class="ispred">Slika</label><input type="text" name="slika" value="'+product["slika"]+'">' +

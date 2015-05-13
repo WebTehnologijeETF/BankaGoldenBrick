@@ -191,7 +191,7 @@ function validiraj(el, ispis){
 			//Validacija adrese (slova i brojevi sa razmacima)
 			ulaz = document.kontaktForma.adresa;
 			if(ulaz.value != null && ulaz.value != ""){
-				reg = /[a-zćčđšž0-9\s,.]{4,}$/i;
+				reg = /^[a-zćčđšž0-9\s,.]{4,}$/i;
 				if(!reg.test(ulaz.value)){
 					if(ispis)
 						prikaziGresku(ulaz, "Pogrešna adresa!");
