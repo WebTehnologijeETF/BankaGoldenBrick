@@ -113,7 +113,7 @@
                         $clanci = array();
                         $k = 0;
                         while (false !== ($entry = readdir($handle))) {
-                            if ($entry === "." || $entry === "..") {
+                            if ($entry === "." || $entry === ".." || is_dir($entry) || substr($entry, -4) !== ".txt") {
                                 continue;
                             }
 

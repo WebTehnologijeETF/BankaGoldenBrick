@@ -122,12 +122,14 @@
                     ispisiIme($greska);
                     ispisiPrezime($greska);
                     echo '<label class="ispred">Općina</label>
-                            <input type="text" name="opcina">
-                            <img src="static/images/error.png" alt="greska" class="error_img" id="opcina_error">
+                            <input type="text" name="opcina" value="';
+                    if(isset($_POST["opcina"])) echo htmlentities($_POST["opcina"]);
+                      echo '"><img src="static/images/error.png" alt="greska" class="error_img" id="opcina_error">
                             <label class="iza" id="opcina_greska"></label>
                         <label class="ispred">Mjesto</label>
-                            <input type="text" name="mjesto">
-                            <img src="static/images/error.png" alt="greska" class="error_img" id="mjesto_error">
+                            <input type="text" name="mjesto" value="';
+                    if(isset($_POST["opcina"])) echo htmlentities($_POST["opcina"]);
+                       echo '"><img src="static/images/error.png" alt="greska" class="error_img" id="mjesto_error">
                             <label class="iza" id="mjesto_greska"></label>';
                     ispisiAdresu($greska);
                     ispisiEmail($greska);
@@ -281,14 +283,11 @@
                 }
                 function posaljiMail($txt){
                     require("includes/sendgrid-php/sendgrid-php.php");
-
-                    $service_plan_id = "sendgrid_8d582";
-                    $account_info = json_decode(getenv($service_plan_id), true);
-
-                    $sendgrid = new SendGrid($account_info['username'], $account_info['password']);
+                    $sendgrid = new SendGrid("muhamed", "22011993mujic");
                     $email    = new SendGrid\Email();
 
                     $email->addTo("mmujic1@etf.unsa.ba")
+                        ->setFrom($_POST["email"])
                         ->setSubject("Poruka poslana sa kontakt forme")
                         ->setReplyTo($_POST["email"])
                         ->addCc("vljubovic@etf.unsa.ba")
@@ -300,8 +299,6 @@
                 if(isset($_POST["slanje"]) and $_POST["slanje"] === "1"){
                     echo "<div class='kontakt'><br><br><br>"
                         ."<h4 style='text-align: center;'>Zahvaljujemo se što ste nas kontaktirali</h4></div>";
-                    /*$to = "mmujic1@etf.unsa.ba";
-                    $subject = "Poruka poslana sa kontakt forme";*/
                     $txt = "Ime: ". $_POST["ime"]."\r\n"
                           ."Prezime: ". $_POST["prezime"]."\r\n";
                     if(!empty($_POST["opcina"]))
@@ -317,11 +314,6 @@
                            ."Poruka: ". $_POST["poruka"]."\r\n";
                     $txt = wordwrap($txt, 70, "\r\n");
                     posaljiMail($txt);
-                    /*$headers = "From: webmaster@example.com" . "\r\n" .
-                        'Reply-To: '.$_POST["email"] . "'" . "\r\n" .
-                        "CC: vljubovic@etf.unsa.ba";
-
-                    mail($to,$subject,$txt,$headers);*/
                 }elseif(isset($_POST["posalji"])){
                     validacija();
                     echo '<div class="kontakt">';
