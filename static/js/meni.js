@@ -11,6 +11,14 @@ window.onload = function(){
 			});
 		}
 	}
+    var aovi = document.getElementsByClassName("detaljnije");
+
+    for(var i = 0; i < aovi.length; i++){
+        aovi[i].addEventListener("click", function(ev){
+            ev.preventDefault();
+            ucitaj(this.getAttribute("href"));
+        })
+    }
 	var path = window.location.pathname;
 	var page = path.split("/").pop();
 	if(page=="contact.html"){

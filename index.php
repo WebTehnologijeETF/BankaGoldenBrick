@@ -8,6 +8,28 @@
 		<link rel="icon" type="image/x-icon" href="static/images/icon.ico">
 		<script src="static/js/meni.js"></script>
         <script src="static/js/loadAjax.js"></script>
+        <script>
+            function ucitaj(naziv){
+                //console.log("MM");
+                naziv = encodeURI(naziv);
+                var div = document.getElementsByClassName("centar")[0];
+                var ajax = new XMLHttpRequest();
+                ajax.onreadystatechange = function () {
+                    if (ajax.readyState == "4" && ajax.status == "200") {
+                        div.innerHTML = ajax.responseText;
+                    }
+                    if (ajax.readyState == "4" && ajax.status == "400") {
+                        div.innerHTML = "Pogrešni podaci!";
+                    }
+                    if (ajax.readyState == "4" && ajax.status == "404") {
+                        div.innerHTML = "Stranica nije pronađena!";
+                    }
+                }
+                ajax.open("POST", "ucitajNovost.php", true);
+                ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                ajax.send("naziv="+naziv);
+            }
+        </script>
 	</head>
 	<body>
 		<div class="okvir">
@@ -96,9 +118,10 @@
 
                             $path = "novosti/" . $entry;
                             $novost = fopen($path, "r") or die("Greška u otvaranju fajla");
+                            $clanci[$k]["naziv"] = explode(".", $entry)[0];
                             $clanci[$k]['vrijeme'] = fgets($novost);
                             $clanci[$k]['autor'] = fgets($novost);
-                            $clanci[$k]['naslov'] = ucfirst(strtolower(fgets($novost)));
+                            $clanci[$k]['naslov'] = ucfirst(mb_strtolower(fgets($novost), 'UTF-8'));
                             $clanci[$k]['slikaURL'] = fgets($novost);
                             $tekst = array();
                             $i = 0;
@@ -135,13 +158,13 @@
                             $mjesec2 = $datum2[1];
                             $godina2 = $datum2[2];
                             if($godina1===$godina2 and $mjesec1===$mjesec2 and $dan1===$dan2) {
-                                return $vrijeme1 > $vrijeme2;
+                                return $vrijeme1 < $vrijeme2;
                             }elseif($godina1===$godina2 and $mjesec1===$mjesec2){
-                                return $dan1 > $dan2;
+                                return $dan1 < $dan2;
                             }elseif($godina1===$godina2){
-                                return $mjesec1 > $mjesec2;
+                                return $mjesec1 < $mjesec2;
                             }else{
-                                return $godina1 > $godina2;
+                                return $godina1 < $godina2;
                             }
                         });
                         for($j = 0; $j < count($clanci); $j++){
@@ -159,7 +182,7 @@
                             }
                             echo "<p>".$clanci[$j]['tekst']."</p>";
                             if($clanci[$j]['detaljnije']){
-                                echo "<a href='#'><small>Detaljnije...</small></a>";
+                                echo "<a href='".$clanci[$j]["naziv"]."' class='detaljnije'><small>Detaljnije...</small></a>";
                             }
                             echo "</div>";
                         }
