@@ -15,12 +15,12 @@
 				<div class="meni">
 					<ul>
 						<li>
-							<a href="index.html"  class="logoSlika"></a>
+							<a href=""  class="logoSlika"></a>
 						</li>
 						<li>
-							<a href="index.html"  class="logo"><span class="spanLogo">G</span>olden<span class="spanLogo">B</span>rick</a>
+							<a href=""  class="logo"><span class="spanLogo">G</span>olden<span class="spanLogo">B</span>rick</a>
 						</li>
-						<li class="fokus"><a href="index.html">Naslovnica</a></li>
+						<li class="fokus"><a href="">Naslovnica</a></li>
 						<li class="padajuci"><a href="savings.html">Štednja</a>
 							<ul>
 								<li><a href="savings1.html" class="ajaxLoaderLink meniLink">A Vista</a></li>
@@ -85,7 +85,88 @@
                 </div>
                 <div class="centar">
                 <div class="uvod_centar"><h3>Novosti</h3></div>
-				<div class="clanak">
+                    <?php
+                    if ($handle = opendir('novosti')) {
+                        $clanci = array();
+                        $k = 0;
+                        while (false !== ($entry = readdir($handle))) {
+                            if ($entry === "." || $entry === "..") {
+                                continue;
+                            }
+
+                            $path = "novosti/" . $entry;
+                            $novost = fopen($path, "r") or die("Greška u otvaranju fajla");
+                            $clanci[$k]['vrijeme'] = fgets($novost);
+                            $clanci[$k]['autor'] = fgets($novost);
+                            $clanci[$k]['naslov'] = ucfirst(strtolower(fgets($novost)));
+                            $clanci[$k]['slikaURL'] = fgets($novost);
+                            $tekst = array();
+                            $i = 0;
+                            $detaljnije = false;
+                            while (!feof($novost)) {
+                                $red = fgets($novost);
+                                if ($red === "--\r\n") {
+                                    $detaljnije = true;
+                                    break;
+                                }
+                                $tekst[$i] = $red;
+                                $i += 1;
+                            }
+                            $tekst = implode("<br>", $tekst);
+                            $clanci[$k]['tekst'] = $tekst;
+                            $clanci[$k]["detaljnije"] = $detaljnije;
+                            $k++;
+                        }
+                        usort($clanci, function($a, $b) {
+                            $a = $a['vrijeme'];
+                            $b = $b['vrijeme'];
+                            $datum1 = explode(" ", $a);
+                            $datum2 = explode(" ", $b);
+                            $vrijeme1 = strtotime($datum1[1]);
+                            $vrijeme2 = strtotime($datum2[1]);
+                            $vrijeme1 = date('H:i:s', $vrijeme1);
+                            $vrijeme2 = date('H:i:s', $vrijeme2);
+                            $datum1 = explode(".", $datum1[0]);
+                            $datum2 = explode(".", $datum2[0]);
+                            $dan1 = $datum1[0];
+                            $mjesec1 = $datum1[1];
+                            $godina1 = $datum1[2];
+                            $dan2 = $datum2[0];
+                            $mjesec2 = $datum2[1];
+                            $godina2 = $datum2[2];
+                            if($godina1===$godina2 and $mjesec1===$mjesec2 and $dan1===$dan2) {
+                                return $vrijeme1 > $vrijeme2;
+                            }elseif($godina1===$godina2 and $mjesec1===$mjesec2){
+                                return $dan1 > $dan2;
+                            }elseif($godina1===$godina2){
+                                return $mjesec1 > $mjesec2;
+                            }else{
+                                return $godina1 > $godina2;
+                            }
+                        });
+                        for($j = 0; $j < count($clanci); $j++){
+                            echo "<div class='clanak'>";
+                            echo "<h3>".$clanci[$j]['naslov']."</h3>";
+                            echo "<br>";
+                            echo "<div class='clanak_info'>
+                                    <p class='autor'><img src='static/images/author.png' alt='autor' class='author'>
+                                        <small>".$clanci[$j]['autor']."</small></p>
+                                    <p class='vrijeme'><img src='static/images/date.png' alt='datum' class='datum'>
+                                        <small>".$clanci[$j]['vrijeme']."</small></p>
+					            </div>";
+                            if($clanci[$j]["slikaURL"] !== "\r\n") {
+                                echo "<img src='" . $clanci[$j]['slikaURL'] . "' alt='slika clanka'>";
+                            }
+                            echo "<p>".$clanci[$j]['tekst']."</p>";
+                            if($clanci[$j]['detaljnije']){
+                                echo "<a href='#'><small>Detaljnije...</small></a>";
+                            }
+                            echo "</div>";
+                        }
+                        closedir($handle);
+                    }
+                    ?>
+				<!--<div class="clanak">
 					<h3>GoldenBrick e-pay</h3>
 					<br>
 					<div class="clanak_info">
@@ -179,7 +260,7 @@
 						Više informacija dostupno je u poslovnicama Banke, na broj telefona 033 755 010 ili putem e-mail adrese faktoring.gbbh@rbb-sarajevo.goldenbrick.at, te na web stranici Banke: www.goldenbrickbank.ba.
 					</p>
 					<a href="#"><small>Detaljnije...</small></a>
-				</div>
+				</div> -->
 			</div>
             <div class="desno">
 				<div class="feed">
