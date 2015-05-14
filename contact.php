@@ -279,11 +279,29 @@
                     }
 
                 }
+                function posaljiMail($txt){
+                    require("includes/sendgrid-php/sendgrid-php.php");
+
+                    $service_plan_id = "sendgrid_8d582";
+                    $account_info = json_decode(getenv($service_plan_id), true);
+
+                    $sendgrid = new SendGrid($account_info['username'], $account_info['password']);
+                    $email    = new SendGrid\Email();
+
+                    $email->addTo("mmujic1@etf.unsa.ba")
+                        ->setSubject("Poruka poslana sa kontakt forme")
+                        ->setReplyTo($_POST["email"])
+                        ->addCc("vljubovic@etf.unsa.ba")
+                        ->setHeaders(array('Content-Type' => 'text/html',  'charset'=>'UTF-8'))
+                        ->setText($txt);
+
+                    $sendgrid->send($email);
+                }
                 if(isset($_POST["slanje"]) and $_POST["slanje"] === "1"){
                     echo "<div class='kontakt'><br><br><br>"
                         ."<h4 style='text-align: center;'>Zahvaljujemo se što ste nas kontaktirali</h4></div>";
-                    $to = "mmujic1@etf.unsa.ba";
-                    $subject = "Poruka poslana sa kontakt forme";
+                    /*$to = "mmujic1@etf.unsa.ba";
+                    $subject = "Poruka poslana sa kontakt forme";*/
                     $txt = "Ime: ". $_POST["ime"]."\r\n"
                           ."Prezime: ". $_POST["prezime"]."\r\n";
                     if(!empty($_POST["opcina"]))
@@ -298,11 +316,12 @@
                     $txt .= "Usluga: ". $_POST["usluga"]."\r\n"
                            ."Poruka: ". $_POST["poruka"]."\r\n";
                     $txt = wordwrap($txt, 70, "\r\n");
-                    $headers = "From: webmaster@example.com" . "\r\n" .
+                    posaljiMail($txt);
+                    /*$headers = "From: webmaster@example.com" . "\r\n" .
                         'Reply-To: '.$_POST["email"] . "'" . "\r\n" .
                         "CC: vljubovic@etf.unsa.ba";
 
-                    mail($to,$subject,$txt,$headers);
+                    mail($to,$subject,$txt,$headers);*/
                 }elseif(isset($_POST["posalji"])){
                     validacija();
                     echo '<div class="kontakt">';

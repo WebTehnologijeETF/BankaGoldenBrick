@@ -17,6 +17,7 @@
                 ajax.onreadystatechange = function () {
                     if (ajax.readyState == "4" && ajax.status == "200") {
                         div.innerHTML = ajax.responseText;
+                        scroll(-200,0);
                     }
                     if (ajax.readyState == "4" && ajax.status == "400") {
                         div.innerHTML = "Pogrešni podaci!";
