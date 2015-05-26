@@ -19,6 +19,13 @@ window.onload = function(){
             ucitaj(this.getAttribute("href"));
         })
     }
+    var linkKomentar = document.getElementsByClassName("anchor-komentari");
+    for(var i=0; i < linkKomentar.length; i++){
+        linkKomentar[i].addEventListener("click", function(ev){
+            ev.preventDefault();
+            prikazKomentara(this);
+        })
+    }
 	var path = window.location.pathname;
 	var page = path.split("/").pop();
 	if(page=="contact.html"){

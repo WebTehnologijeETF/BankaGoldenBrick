@@ -1,24 +1,26 @@
 <?php
-$entry = $_POST["naziv"].".txt";
-$path = "novosti/" . $entry;
-$novost = fopen($path, "r") or die("Greška u otvaranju fajla");
-$naziv = explode(".", $entry)[0];
-$vrijeme = fgets($novost);
-$autor = fgets($novost);
-$naslov = ucfirst(mb_strtolower(fgets($novost), 'UTF-8'));
-$slikaURL = fgets($novost);
-$tekst = array();
-$i = 0;
-while (!feof($novost)) {
-    $red = fgets($novost);
-    if ($red === "--\r\n") {
-        continue;
-    }
-    $tekst[$i] = $red;
-    $i += 1;
+$vijestId = htmlentities($_REQUEST['id']);
+try{
+    $veza = new PDO("mysql:dbname=goldenbrick;host:localhost;charset:utf8", "goldenbrickDB", "shawshank");
+}catch(PDOException $ex){
+    echo "MYSQL greška: ".$ex->errorInfo();
+    die();
 }
-fclose($novost);
-$tekst = implode("<br>", $tekst);
+$veza->exec("set names utf8");
+$rezultat = $veza->prepare("SELECT * FROM novosti WHERE id=:id");
+$rezultat->bindParam(':id', $vijestId);
+$rezultat->execute();
+if(!$rezultat){
+    $greska = $veza->errorInfo();
+    print "SQL greška: ".$greska;
+    exit();
+}
+$novost = $rezultat->fetch();
+$vrijeme = $novost['vrijeme'];
+$autor = $novost['autor'];
+$naslov = ucfirst(mb_strtolower($novost['naslov'], 'UTF-8'));
+$slikaURL = $novost['slika'];
+$tekst = nl2br(str_replace("--\r\n", "", $novost['tekst']));
 $string = "";
 $string .= "<div class='clanak'>";
 $string .= "<h3>$naslov</h3>";
@@ -29,7 +31,7 @@ $string .= "<div class='clanak_info'>
                                     <p class='vrijeme'><img src='static/images/date.png' alt='datum' class='datum'>
                                         <small>$vrijeme</small></p>
 					            </div>";
-if($slikaURL !== "\r\n") {
+if($slikaURL !== "") {
     $string .= "<img src='$slikaURL' alt='slika clanka' style='width: 50%;'>";
 }
 $string .= "<p style='font-size: 105%;'>$tekst</p>";
