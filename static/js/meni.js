@@ -29,19 +29,23 @@ window.onload = function(){
 	var path = window.location.pathname;
 	var page = path.split("/").pop();
 	if(page=="contact.html"){
+
 		document.kontaktForma.telefon.setAttribute("placeholder", "+??? ?? ???-???");
 	}else if(page == "services.html"){
+        //console.log(page);
         var tabs = document.getElementsByClassName("tabAnchor");
         loadTab(tabs[0]);
         for(var i=0; i < tabs.length; i++){
+            console.log(tabs[i]);
             tabs[i].addEventListener("click", function(evArgs){
                 evArgs.preventDefault();
                 loadTab(this);
-            })
+            });
         }
         var anchors = document.getElementsByClassName("deleteAnchor");
 
         for(var i=0; i < anchors.length; i++){
+            console.log(anchors[i]);
             anchors[i].addEventListener("click", function(ev){
                 ev.preventDefault();
                 deleteService(this);

@@ -6,6 +6,7 @@ function loadTab(anchor){
         setActive(1);
         loadTabContent(anchor, document.getElementById("content"));
     }else {
+        //console.log("ušo");
         setActive(2);
         modifyServices(anchor, document.getElementById("content"));
     }

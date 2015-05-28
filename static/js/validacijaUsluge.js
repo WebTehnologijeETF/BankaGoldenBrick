@@ -280,3 +280,7 @@ function changeService(ev, anchor, product){
         return validacija(product);
     }
 }
+
+function htmlEntities(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}

@@ -30,11 +30,11 @@ $string .= "<div class='clanak_info'>
                                         <small>$autor</small></p>
                                     <p class='vrijeme'><img src='static/images/date.png' alt='datum' class='datum'>
                                         <small>$vrijeme</small></p>
-					            </div>";
+					            </div><div class='tekst-clanka'>";
 if($slikaURL !== "") {
     $string .= "<img src='$slikaURL' alt='slika clanka' style='width: 50%;'>";
 }
-$string .= "<p style='font-size: 105%;'>$tekst</p>";
+$string .= "<p style='font-size: 105%;'>$tekst</p></div>";
 $string .= "</div>";
 echo $string;
 ?>

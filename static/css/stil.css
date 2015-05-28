@@ -421,6 +421,12 @@ img.author{
 .bold{
     font-weight: bold;
 }
+.dodavanje{
+    width: 95%;
+    padding: 20px;
+    overflow: auto;
+    text-align: center;
+}
 .div-komentari{
     display: none;
 }
@@ -430,6 +436,7 @@ img.author{
     border-radius: 5px;
     border: 1px solid silver;
     margin-bottom: 5px;
+    overflow: auto;
 }
 .border-siva{
     border-bottom: 3px solid silver;
@@ -472,6 +479,26 @@ a.anchor-komentari:hover{
 }
 .not-underlined{
     text-decoration: none !important;
+}
+.gold{
+    color: lightseagreen;
+    font-weight: bold;
+}
+#login-div{
+    width: 68%;
+    display: inline-block;
+    text-align: center;
+}
+.anchor-login{
+    text-decoration: none;
+    color: black;
+}
+.anchor-login:hover{
+    text-decoration: underline;
+}
+.label-footer{
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
 }
 .clanak .clanak_info {
 	margin: 0;
