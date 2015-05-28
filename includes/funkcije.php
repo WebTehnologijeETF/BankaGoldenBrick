@@ -29,7 +29,7 @@ function ucitajZaglavlje(){
 				</div>
             </div>';
 }
-function ucitajPodnozje(){
+function ucitajPodnozje($uname){
     echo '<div class="podnozje">
                 <label class="label-footer">&copy; 2015 GoldenBricks</label>
                 <div id="login-div">
@@ -41,10 +41,12 @@ function ucitajPodnozje(){
                     <label>|</label>
                     <a href="about.html" class="anchor-login">About us</a>
                     <label>|</label>
-                    <a href="contact.php" class="anchor-login">Contact us</a>
-                    <label>|</label>
-                    <a href="login.php" class="anchor-login">Login</a>
-                </div>
+                    <a href="contact.php" class="anchor-login">Contact us</a>';
+    if($uname==="Anoniman") {
+        echo '<label>|</label>
+            <a href="login.php" class="anchor-login">Login</a>';
+    }
+    echo '</div>
                 <label class="label-footer">Sva prava pridržana.</label>
         </div>';
 }

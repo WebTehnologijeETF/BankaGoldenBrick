@@ -227,7 +227,7 @@ if(isset($_REQUEST['obrisiAdmina'])){
         obrisiAdmina($greska, $tekstGreske);
     }
     echo "</div>";
-    ucitajPodnozje();
+    ucitajPodnozje("admin");
     function unosNovosti($greska){
 
         echo "<div class='dodavanje'>"

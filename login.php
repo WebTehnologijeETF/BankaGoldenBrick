@@ -1,9 +1,11 @@
 <?php
 session_start();
 $greska = "NOT OK";
+$user = "Anoniman";
 require("includes/funkcije.php");
 if (isset($_SESSION['username'])){
     $username = $_SESSION['username'];
+    $user = "admin";
     $greska = "OK";
 }else if (isset($_REQUEST['username'])) {
     $username = $_REQUEST['username'];
@@ -51,11 +53,11 @@ if(isset($_REQUEST['resetSifre'])){
                 echo "Database error.";
                 die();
             }
-            $tekst = "Uvaženi,\n\nVaša šifra je resetovana.\nNova šifra: $randPass.\n\n"
-                    ."Srdačan pozdrav,\nVaša GoldenBrick banka";
+            $tekst = "Uvaženi,\r\n\r\nVaša šifra je resetovana.\r\nKorisničko ime: $uname\r\nNova šifra: $randPass.\r\n\r\n"
+                    ."Srdačan pozdrav,\r\nVaša GoldenBrick banka";
             $poslan = posaljiMail($user['email'], "goldenbrick@mail.com", "Reset šifre", $tekst);
             if($poslan){
-                header("Location: index.php");
+                header("Location: login.php");
             }
         }
     }
@@ -99,7 +101,7 @@ if(isset($_REQUEST['reset'])){
 }else {
     ucitajLoginFormu($greska);
 }
-ucitajPodnozje();
+ucitajPodnozje($user);
 function ucitajLoginFormu($greska)
 {
     echo "<div class='sjena'></div>\r\n";

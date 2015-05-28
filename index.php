@@ -435,7 +435,7 @@ if(isset($_REQUEST['komentarisi'])){
             <div style="clear:both;"></div>
             </div>
             <?php
-            ucitajPodnozje();
+            ucitajPodnozje($username);
             ?>
 		</div>
 		<div class="vrh">
