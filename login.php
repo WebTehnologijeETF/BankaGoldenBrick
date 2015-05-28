@@ -55,10 +55,11 @@ if(isset($_REQUEST['resetSifre'])){
             }
             $tekst = "Uvaženi,\r\n\r\nVaša šifra je resetovana.\r\nKorisničko ime: $uname\r\nNova šifra: $randPass.\r\n\r\n"
                     ."Srdačan pozdrav,\r\nVaša GoldenBrick banka";
-            $poslan = posaljiMail($user['email'], "goldenbrick@mail.com", "Reset šifre", $tekst);
-            if($poslan){
+            posaljiPearMail("goldenbrick@mail.com", $user['email'], "Reset passworda", $tekst);
+            //$poslan = posaljiMail($user['email'], "goldenbrick@mail.com", "Reset šifre", $tekst);
+            //if($poslan){
                 header("Location: login.php");
-            }
+            //}
         }
     }
 }

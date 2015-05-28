@@ -82,4 +82,46 @@ function posaljiMail($mailTo, $mailFrom, $subject, $tekst){
     $sendgrid->send($email);
     return true;
 }
+function posaljiPearMail($sender, $recipient, $subject, $body){
+    // Include the Mail package
+    require "Mail-1.2.0/Mail.php";
+
+    // Identify the sender, recipient, mail subject, and body
+    /*
+       $sender    = "sender@gmail.com";
+       $recipient = "recipient@gmail.com";
+       $subject   = "Test mail";
+       $body      = "Ciao Cristian, questa è una mail";
+    */
+    // Identify the mail server, username, password, and port
+    $server   = "ssl://smtp.gmail.com";
+    $username = "goldenbrickbank@gmail.com";
+    $password = "shawshank";
+    $port     = "465";
+
+    // Set up the mail headers
+    $headers = array(
+        "From"    => $sender,
+        "To"      => $recipient,
+        "Subject" => $subject
+    );
+
+    // Configure the mailer mechanism
+    $smtp = Mail::factory("smtp",
+        array(
+            "host"     => $server,
+            "username" => $username,
+            "password" => $password,
+            "auth"     => true,
+            "port"     => 465
+        )
+    );
+
+    // Send the message
+    $mail = $smtp->send($recipient, $headers, $body);
+
+    if (PEAR::isError($mail)) {
+        echo ($mail->getMessage());
+    }
+}
 ?>

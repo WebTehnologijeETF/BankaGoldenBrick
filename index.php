@@ -5,11 +5,11 @@ if(isset($_SESSION['username'])){
 }else{
     $username = "Anoniman";
 }
-if(isset($_REQUEST['logout'])){
+if($username !== "Anoniman" && isset($_REQUEST['logout'])){
     session_destroy();
     $username = "Anoniman";
 }
-if(isset($_REQUEST['izbrisiKomentar'])){
+if($username !== "Anoniman" && isset($_REQUEST['izbrisiKomentar'])){
     $id = htmlentities($_REQUEST['komentarID']);
     try{
         $veza = new PDO("mysql:dbname=goldenbrick;host=localhost;charset=utf8", "goldenbrickDB", "shawshank");
@@ -26,7 +26,7 @@ if(isset($_REQUEST['izbrisiKomentar'])){
     }
 }
 $greska = false;
-if(isset($_REQUEST['spremiIzmjenuNovosti'])){
+if($username !== "Anoniman" && isset($_REQUEST['spremiIzmjenuNovosti'])){
     if(empty($_REQUEST['autor']) || empty($_REQUEST['naslov']) || empty($_REQUEST['tekst'])){
         $greska = true;
         $_REQUEST['izmijeniVijest']=true;
@@ -53,7 +53,7 @@ if(isset($_REQUEST['spremiIzmjenuNovosti'])){
         }
     }
 }
-if(isset($_REQUEST['obrisiVijest'])){
+if($username !== "Anoniman" && isset($_REQUEST['obrisiVijest'])){
     $id = htmlentities($_REQUEST['vijestID']);
     try{
         $veza = new PDO("mysql:dbname=goldenbrick;host=localhost;charset=utf8", "goldenbrickDB", "shawshank");
