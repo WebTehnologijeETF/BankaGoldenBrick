@@ -32,7 +32,7 @@ if(isset($_REQUEST['dodajNovost'])){
     }
 }
 if(isset($_REQUEST['dodajAdmina'])){
-    if(empty($_REQUEST['username']) || empty($_REQUEST['password'])){
+    if(empty($_REQUEST['username']) || empty($_REQUEST['password']) || empty($_REQUEST['email'])){
         $greska = true;
         $tekstGreske = "Polja nisu popunjena.";
     }else{
@@ -49,11 +49,13 @@ if(isset($_REQUEST['dodajAdmina'])){
             $tekstGreske = "Korisničko ime je u upotrebi.";
             $greska = true;
         }else {
-            $upit = $veza->prepare("INSERT INTO korisnici (username, password) VALUES (:uname, :pass)");
+            $upit = $veza->prepare("INSERT INTO korisnici (username, password, email) VALUES (:uname, :pass, :email)");
             $pass = htmlentities($_REQUEST['password']);
             $pass = md5($pass);
+            $email = htmlentities($_REQUEST['email']);
             $upit->execute(array(':uname' => $uname,
-                ':pass' => $pass));
+                ':pass' => $pass,
+                ':email'=>$email));
             if (!$upit) {
                 echo "Greška prilikom dodavanja administratora.";
             }
@@ -61,7 +63,7 @@ if(isset($_REQUEST['dodajAdmina'])){
     }
 }
 if(isset($_REQUEST['promijeniAdmina'])){
-    if(empty($_REQUEST['username']) || empty($_REQUEST['password'])){
+    if(empty($_REQUEST['username']) || empty($_REQUEST['password']) || empty($_REQUEST['email'])){
         $greska = true;
         $tekstGreske = "Polja nisu popunjena.";
     }elseif(!isset($_REQUEST['admin'])) {
@@ -85,11 +87,13 @@ if(isset($_REQUEST['promijeniAdmina'])){
             $tekstGreske = "Korisničko ime je u upotrebi.";
             $greska = true;
         }else {
-            $upit = $veza->prepare("UPDATE korisnici SET username=:uname, password=:pass WHERE username=:old");
+            $upit = $veza->prepare("UPDATE korisnici SET username=:uname, password=:pass, email=:email WHERE username=:old");
             $pass = htmlentities($_REQUEST['password']);
             $pass = md5($pass);
+            $email = htmlentities($_REQUEST['email']);
             $upit->execute(array(':uname' => $uname,
                 ':pass' => $pass,
+                ':email'=>$email,
                 ':old'=>$old));
             if (!$upit) {
                 echo "Greška prilikom dodavanja administratora.";
@@ -250,6 +254,8 @@ if(isset($_REQUEST['obrisiAdmina'])){
             ."<input type='text' name='username' class='ulaz'><br>"
             ."<label>Šifra</label><br>"
             ."<input type='text' name='password' class='ulaz'><br>"
+            ."<label>Email</label><br>"
+            ."<input type='text' name='email' class='ulaz'><br>"
             ."<input type='submit' name='dodajAdmina' value='Dodaj administratora' class='submit-komentar'>";
         if($greska)
             echo "<br><br><label style='color:red; font-weight: bold'>$tekstGreske</label>";
@@ -282,6 +288,8 @@ if(isset($_REQUEST['obrisiAdmina'])){
             ."<input type='text' name='username' class='ulaz'><br>"
             ."<label>Nova šifra</label><br>"
             ."<input type='text' name='password' class='ulaz'><br>"
+            ."<label>Novi email</label><br>"
+            ."<input type='text' name='email' class='ulaz'><br>"
             ."<input type='submit' name='promijeniAdmina' value='Promijeni administratora' class='submit-komentar'>";
         if($greska)
             echo "<br><br><label style='color:red; font-weight: bold'>$tekstGreske</label>";

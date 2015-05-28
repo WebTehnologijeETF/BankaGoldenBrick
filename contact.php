@@ -283,14 +283,14 @@
                 }
                 function posaljiMail($txt){
                     require("includes/sendgrid-php/sendgrid-php.php");
-                    $sendgrid = new SendGrid("muhamed", "22011993mujic");
+                    $sendgrid = new SendGrid("muhamed", "mijenjam45bravu");
                     $email    = new SendGrid\Email();
 
                     $email->addTo("mmujic1@etf.unsa.ba")
                         ->setFrom($_POST["email"])
                         ->setSubject("Poruka poslana sa kontakt forme")
                         ->setReplyTo($_POST["email"])
-                        ->addCc("vljubovic@etf.unsa.ba")
+                      //  ->addCc("vljubovic@etf.unsa.ba")
                         ->setHeaders(array('Content-Type' => 'text/html',  'charset'=>'UTF-8'))
                         ->setText($txt);
 

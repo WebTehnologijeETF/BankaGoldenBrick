@@ -70,7 +70,7 @@ function randomPassword() {
 }
 function posaljiMail($mailTo, $mailFrom, $subject, $tekst){
     require("sendgrid-php/sendgrid-php.php");
-    $sendgrid = new SendGrid("muhamed", "22011993mujic");
+    $sendgrid = new SendGrid("muhamed", "mijenjam45bravu");
     $email    = new SendGrid\Email();
     $email->addTo($mailTo)
         ->setFrom($mailFrom)
