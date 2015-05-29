@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b4d6b8a-7e7d-40c7-9e2f-835773529cea" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/funkcije.php" afterPath="$PROJECT_DIR$/includes/funkcije.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
-    </list>
+    <list default="true" id="0b4d6b8a-7e7d-40c7-9e2f-835773529cea" name="Default" comment="" />
     <ignored path="BankaGoldenBrick.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
