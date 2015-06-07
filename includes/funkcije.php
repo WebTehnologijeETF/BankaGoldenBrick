@@ -124,4 +124,13 @@ function posaljiPearMail($sender, $recipient, $subject, $body){
         echo ($mail->getMessage());
     }
 }
+function connect(){
+    try{
+        $veza = new PDO("mysql:dbname=goldenbrick;host=localhost;charset=utf8", "goldenbrickDB", "shawshank");
+    }catch(PDOException $ex){
+        throw new Exception("MYSQL greška:".$ex->getMessage());
+    }
+    $veza->exec("set names utf8");
+    return $veza;
+}
 ?>

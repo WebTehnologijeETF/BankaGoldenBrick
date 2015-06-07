@@ -12,13 +12,24 @@ if (isset($_SESSION['username'])){
     $pass = $_REQUEST['password'];
     $username = htmlentities($username);
     $pass = htmlentities($pass);
-    $veza = new PDO("mysql:dbname=goldenbrick;host=localhost;charset=utf8", "goldenbrickDB", "shawshank");
-    $veza->exec("set names utf8");
+    try{
+        $veza = connect();
+    }catch (PDOException $ex){
+        echo $ex->getMessage();
+        die();
+    }
     $sql = "SELECT * FROM korisnici WHERE username=:user AND password=md5(:pass)";
     $q = $veza->prepare($sql);
     $q->execute(array(':user'=>$username, ':pass'=>$pass));
     if($q->rowCount()==1){
+        $usr = $q->fetch();
+        $email = $usr['email'];
         $_SESSION['username'] = $username;
+        $_SESSION['email'] = $email;
+        if($usr['admin'])
+            $_SESSION['tip'] = "admin";
+        else
+            $_SESSION['tip'] = "korisnik";
         $greska = "OK";
     }else{
         unset($username);
@@ -30,10 +41,10 @@ if(isset($_REQUEST['resetSifre'])){
         $greska = "Polje korisničko ime ne smije biti prazno.";
         $_REQUEST['reset'] = 1;
     }else {
-        try {
-            $veza = new PDO("mysql:dbname=goldenbrick;host=localhost;charset=utf8", "goldenbrickDB", "shawshank");
-        }catch(PDOException $ex){
-            echo "MYSQL greška: ".$ex->errorInfo();
+        try{
+            $veza = connect();
+        }catch (PDOException $ex){
+            echo $ex->getMessage();
             die();
         }
         $uname = htmlentities($_REQUEST['korisnickoIme']);
@@ -44,22 +55,23 @@ if(isset($_REQUEST['resetSifre'])){
             $_REQUEST['reset'] = 1;
         }else{
             $user = $upit->fetch();
-            $randPass = randomPassword();
-            $hash = md5($randPass);
-            $upit = $veza->prepare("UPDATE korisnici SET password=:pass WHERE username=:uname");
-            $upit->execute(array(':uname'=>$uname,
-                                 ':pass'=>$hash));
-            if(!$upit){
-                echo "Database error.";
-                die();
-            }
-            $tekst = "Uvaženi,\r\n\r\nVaša šifra je resetovana.\r\nKorisničko ime: $uname\r\nNova šifra: $randPass.\r\n\r\n"
-                    ."Srdačan pozdrav,\r\nVaša GoldenBrick banka";
-            posaljiPearMail("goldenbrick@mail.com", $user['email'], "Reset passworda", $tekst);
-            //$poslan = posaljiMail($user['email'], "goldenbrick@mail.com", "Reset šifre", $tekst);
-            //if($poslan){
-                header("Location: login.php");
-            //}
+            $token = sha1(uniqid($uname, true));
+            $query = $veza->prepare(
+                "INSERT INTO priv_linkovi (username, token, tstamp) VALUES (?, ?, ?)"
+            );
+            $query->execute(
+                array(
+                    $uname,
+                    $token,
+                    $_SERVER["REQUEST_TIME"]
+                )
+            );
+            $url = "http://" . $_SERVER["HTTP_HOST"]. "/reset.php?token=".$token;
+            $tekst = "Uvaženi,\r\n\r\nKako biste resetovali Vašu šifru, otvorite sljedeći link:\r\n"
+                ."$url\r\n"
+                ."Srdačan pozdrav,\r\nVaša GoldenBrick banka";
+            posaljiPearMail("goldenbrick@mail.com", $user['email'], "Potvrda resetovanja passworda", $tekst);
+            header("Location: login.php");
         }
     }
 }

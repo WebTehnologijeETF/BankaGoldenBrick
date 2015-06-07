@@ -9,104 +9,6 @@ if($username !== "Anoniman" && isset($_REQUEST['logout'])){
     session_destroy();
     $username = "Anoniman";
 }
-if($username !== "Anoniman" && isset($_REQUEST['izbrisiKomentar'])){
-    $id = htmlentities($_REQUEST['komentarID']);
-    try{
-        $veza = new PDO("mysql:dbname=goldenbrick;host=localhost;charset=utf8", "goldenbrickDB", "shawshank");
-    }catch (PDOException $ex){
-        echo "MYSQL greška: ".$ex->getMessage();
-        die();
-    }
-    $upit = $veza->prepare("DELETE FROM komentari WHERE id=:id");
-    $upit->bindParam(':id', $id);
-    $upit->execute();
-    if(!$upit){
-        echo "Greška prilikom brisanja komentara.";
-        die();
-    }
-}
-$greska = false;
-if($username !== "Anoniman" && isset($_REQUEST['spremiIzmjenuNovosti'])){
-    if(empty($_REQUEST['autor']) || empty($_REQUEST['naslov']) || empty($_REQUEST['tekst'])){
-        $greska = true;
-        $_REQUEST['izmijeniVijest']=true;
-    }else{
-        try {
-            $veza = new PDO("mysql:dbname=goldenbrick;host=localhost;charset=utf8", "goldenbrickDB", "shawshank");
-        }catch(PDOException $ex){
-            echo "MYSQL greška: ".$ex->errorInfo();
-            die();
-        }
-        $upit = $veza->prepare("UPDATE novosti set autor=:autor, naslov=:naslov, slika=:slika, tekst=:tekst WHERE id=:id");
-        $autor = htmlentities($_REQUEST['autor']);
-        $naslov = htmlentities($_REQUEST['naslov']);
-        $slika = htmlentities($_REQUEST['slika']);
-        $tekst = htmlentities($_REQUEST['tekst']);
-        $vijestID = htmlentities($_REQUEST['vijestID']);
-        $upit->execute(array(':autor'=>$autor,
-            ':naslov'=>$naslov,
-            ':slika'=>$slika,
-            ':tekst'=>$tekst,
-            ':id'=>$vijestID));
-        if(!$upit){
-            echo "Greška prilikom izmjene novosti.";
-        }
-    }
-}
-if($username !== "Anoniman" && isset($_REQUEST['obrisiVijest'])){
-    $id = htmlentities($_REQUEST['vijestID']);
-    try{
-        $veza = new PDO("mysql:dbname=goldenbrick;host=localhost;charset=utf8", "goldenbrickDB", "shawshank");
-    }catch (PDOException $ex){
-        echo "MYSQL greška: ".$ex->getMessage();
-        die();
-    }
-    $upit = $veza->prepare("DELETE FROM novosti WHERE id=:id");
-    $upit->bindParam(':id', $id);
-    $upit->execute();
-    if(!$upit){
-        echo "Greška prilikom brisanja novosti.";
-        die();
-    }
-}
-$prazniUnosi = false;
-$vijestGreska = 0;
-if(isset($_REQUEST['komentarisi'])){
-    try{
-        $veza = new PDO("mysql:dbname=goldenbrick;host:localhost;charset:utf8", "goldenbrickDB", "shawshank");
-    }catch (PDOException $ex){
-        echo "MYSQL greška: ".$ex->errorInfo();
-        die();
-    }
-    $veza->exec("set names utf8");
-    $novost = htmlentities($_REQUEST['novostID']);
-    $autor = htmlentities($_REQUEST['autor']);
-    $tekst = htmlentities($_REQUEST['tekstKomentara']);
-    if(isset($_REQUEST['email']) and !empty($_REQUEST['email']) and !empty($_REQUEST['autor']) and !empty($_REQUEST['tekstKomentara'])){
-        $email = htmlentities($_REQUEST['email']);
-        $upit = $veza->prepare("INSERT INTO komentari (novost, autor, email, tekst) VALUES (:novost, :autor, :email, :tekst)");
-        $upit->execute(array(':novost'=>$novost,
-                              ':autor'=>$autor,
-                              ':email'=>$email,
-                              ':tekst'=>$tekst));
-        if(!$upit){
-            echo "Greška prilikom spremanja komentara.";
-            die();
-        }
-    }elseif(!empty($_REQUEST['autor']) and !empty($_REQUEST['tekstKomentara'])){
-        $upit = $veza->prepare("INSERT INTO komentari (novost, autor, tekst) VALUES (:novost, :autor, :tekst)");
-        $upit->execute(array(':novost'=>$novost,
-            ':autor'=>$autor,
-            ':tekst'=>$tekst));
-        if(!$upit){
-            echo "Greška prilikom spremanja komentara.";
-            die();
-        }
-    }else{
-        $prazniUnosi=true;
-        $vijestGreska = $_REQUEST['novostID'];
-    }
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -117,40 +19,7 @@ if(isset($_REQUEST['komentarisi'])){
 		<link rel="icon" type="image/x-icon" href="static/images/icon.ico">
 		<script src="static/js/meni.js"></script>
         <script src="static/js/loadAjax.js"></script>
-        <script>
-            function ucitaj(id){
-                //console.log("MM");
-                id = encodeURI(id);
-                var div = document.getElementsByClassName("centar")[0];
-                var ajax = new XMLHttpRequest();
-                ajax.onreadystatechange = function () {
-                    if (ajax.readyState == "4" && ajax.status == "200") {
-                        div.innerHTML = ajax.responseText;
-                        scroll(-200,0);
-                    }
-                    if (ajax.readyState == "4" && ajax.status == "400") {
-                        div.innerHTML = "Pogrešni podaci!";
-                    }
-                    if (ajax.readyState == "4" && ajax.status == "404") {
-                        div.innerHTML = "Stranica nije pronađena!";
-                    }
-                }
-                ajax.open("POST", "ucitajNovost.php", true);
-                ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                ajax.send("id="+id);
-            }
-            function prikazKomentara(anchor){
-                if(anchor.classList.contains("zatvoreno")){
-                    anchor.classList.remove("zatvoreno");
-                    anchor.classList.add("otvoreno");
-                    document.getElementById("div"+anchor.getAttribute("href")).style.display = "block";
-                }else{
-                    anchor.classList.remove("otvoreno");
-                    anchor.classList.add("zatvoreno");
-                    document.getElementById("div"+anchor.getAttribute("href")).style.display = "none";
-                }
-            }
-        </script>
+        <script src="static/js/rest.js"></script>
         <style>
             #adminMeni{
                 padding: 10px;
@@ -181,11 +50,23 @@ if(isset($_REQUEST['komentarisi'])){
                 background-color: #DD1144;
                 color: white;
             }
+            .ulaz-login{
+                height: 19px;
+                width: 150px;
+                border-radius: 5px;
+                border: 1px solid silver;
+                padding: 5px 5px;
+            }
+            select{
+                width: 250px;
+                height: 35px;
+                font-size: 103%;
+                font-family: 'Ubuntu', sans-serif;
+            }
         </style>
 	</head>
 	<body>
 		<div class="okvir">
-
             <?php
             require("includes/funkcije.php");
             ucitajZaglavlje();
@@ -193,36 +74,46 @@ if(isset($_REQUEST['komentarisi'])){
             <div class="sjena"></div>
 			<div class="sadrzaj">
                     <?php
-                    if($username!=="Anoniman"){
+                    if($username!=="Anoniman") {
                         echo "<form method='post' action='index.php' style='text-align: right;margin: 10px; width: 98%'>\r\n"
-                            ."<label>Prijavljeni ste kao: <span class='gold'>".$username."</span></label>"
-                            ."<input type='submit' name='logout' value='Odjavi se'"
-                            ."class='submit-komentar' style='margin-left:10px;'>\r\n"
-                            ."</form>\r\n";
-                        //echo "<br><br><br>";
-                        echo "<div id='adminMeni'>";
-                        echo "<a href='admin.php?create=news' class='anchor-admin'>Dodavanje novosti</a>";
-                        echo "<label>|</label>";
-                        echo "<a href='admin.php?create=admin' class='anchor-admin'>Dodavanje administratora</a>";
-                        echo "<label>|</label>";
-                        echo "<a href='admin.php?update=admin' class='anchor-admin'>Izmjena administratora</a>";
-                        echo "<label>|</label>";
-                        echo "<a href='admin.php?delete=admin' class='anchor-admin'>Brisanje administratora</a>";
-                        echo "</div>";
+                            . "<label>Prijavljeni ste kao: <span class='gold'>" . $username . "</span></label>"
+                            . "<input type='submit' name='logout' value='Odjavi se'"
+                            . "class='submit-komentar' style='margin-left:10px;'>\r\n"
+                            . "</form>\r\n";
+                        if($_SESSION['tip'] === "admin"){
+                            echo "<div id='adminMeni'>";
+                            echo "<a href='admin.php?create=news' class='anchor-admin'>Dodavanje novosti</a>";
+                            echo "<label>|</label>";
+                            echo "<a href='admin.php?create=admin' class='anchor-admin'>Dodavanje administratora</a>";
+                            echo "<label>|</label>";
+                            echo "<a href='admin.php?update=admin' class='anchor-admin'>Izmjena administratora</a>";
+                            echo "<label>|</label>";
+                            echo "<a href='admin.php?delete=admin' class='anchor-admin'>Brisanje administratora</a>";
+                            echo "</div>";
+                        }
+                    }else{
+                        echo "<form method='post' action='login.php' style='text-align: right;margin: 10px; width: 98%'>\r\n"
+                            . "<input type='text' name='username' class='ulaz-login' placeholder='Username'>"
+                            . "<input type='password' name='password' class='ulaz-login' placeholder='Password'>"
+                            . "<input type='submit' name='login' value='Prijavi se'"
+                            . "class='submit-komentar' style='margin-left:0px;'>"
+                            . "</form>";
                     }
+
                     if(isset($_REQUEST['izmijeniVijest'])){
                         $vijestID = htmlentities($_REQUEST['vijestID']);
                         izmijeniNovost($vijestID, $greska);
                     }else {
                         lijeviSideBar();
-                        prikaziNovosti($prazniUnosi, $vijestGreska, $username);
+                        echo "<div class='centar'></div>";
                         desniSideBar();
                     }
                     function izmijeniNovost($vijestID, $greska){
                         try{
-                            $veza = new PDO("mysql:dbname=goldenbrick;host=localhost;charset=utf8", "goldenbrickDB", "shawshank");
-                        }catch (PDOException $e){
-                            echo "MYSQL greška: ".$e->getMessage();
+                            $veza = connect();
+                        }catch (PDOException $ex){
+                            echo $ex->getMessage();
+                            die();
                         }
                         $upit = $veza->prepare("SELECT * FROM novosti WHERE id=:id");
                         $upit->bindParam(':id', $vijestID);
@@ -293,123 +184,6 @@ if(isset($_REQUEST['komentarisi'])){
                                 </div>
                             </div>
                         </div>';
-                    }
-                    function prikaziNovosti($prazniUnosi, $vijestGreska, $username)
-                    {
-                        $clanci = array();
-                        try {
-                            $veza = new PDO("mysql:dbname=goldenbrick;host:localhost;charset:utf8", "goldenbrickDB", "shawshank");
-                        } catch (PDOException $ex) {
-                            echo "MYSQL greška: " . $ex->errorInfo();
-                            die();
-                        }
-                        $veza->exec("set names utf8");
-                        $rezultat = $veza->query("SELECT * FROM novosti ORDER BY vrijeme DESC");
-                        if (!$rezultat) {
-                            $greska = $veza->errorInfo();
-                            print "SQL greška: " . $greska;
-                            exit();
-                        }
-                        foreach ($rezultat as $vijest) {
-                            if (strpos($vijest['tekst'], "--\r\n") !== false) {
-                                $vijest["detaljnije"] = true;
-                            } else {
-                                $vijest["detaljnije"] = false;
-                            }
-                            //$vijest['tekst'] = str_replace("--\r\n", "", $vijest['tekst']);
-                            $vijest['tekst'] = explode("--\r\n", $vijest['tekst'])[0];
-                            $vijest['tekst'] = nl2br($vijest['tekst']);
-                            array_push($clanci, $vijest);
-                        }
-                        /*usort($clanci, function ($a, $b) {
-                            $vr1 = new DateTime($a['vrijeme']);
-                            $vr2 = new DateTime($b['vrijeme']);
-                            return $vr1 > $vr2;
-                        });*/
-                        echo " <div class='centar'>" . "<div class='uvod_centar'><h3>Novosti</h3></div>\r\n";
-                        for ($j = 0; $j < count($clanci); $j++) {
-                            echo "<div class='clanak'>\r\n";
-                            echo "<h3>" . $clanci[$j]['naslov'] . "</h3>\r\n";
-                            echo "<br>";
-                            echo "<div class='clanak_info'>\r\n"
-                                . "<p class='autor'><img src='static/images/author.png' alt='autor' class='author'>\r\n"
-                                . "<small>" . $clanci[$j]['autor'] . "</small></p>\r\n"
-                                . "<p class='vrijeme'><img src='static/images/date.png' alt='datum' class='datum'>\r\n"
-                                . "<small>" . $clanci[$j]['vrijeme'] . "</small></p>\r\n"
-                                . "</div>\r\n";
-                            echo "<div class='tekst-clanka'>\r\n";
-                            if ($clanci[$j]["slika"] !== "") {
-                                echo "<img src='" . $clanci[$j]['slika'] . "' alt='slika clanka'>\r\n";
-                            }
-                            echo "<p>" . $clanci[$j]['tekst'] . "</p>\r\n</div>\r\n";
-                            if ($clanci[$j]['detaljnije']) {
-                                echo "<a href='" . $clanci[$j]["id"] . "' class='detaljnije'><small>Detaljnije...</small></a>\r\n";
-                            }
-                            $vijestID = intval(htmlentities($clanci[$j]['id']));
-                            $upit = $veza->prepare("SELECT * FROM komentari WHERE novost=:vijestID ORDER BY vrijeme ASC");
-                            $upit->bindParam(":vijestID", $vijestID, PDO::PARAM_INT);
-                            $upit->execute();
-                            if (!$upit) {
-                                echo "Greška u dobavljanju komentara";
-                                die();
-                            }
-                            if ($upit->rowCount() === 0) {
-                                $brojKomentara = "Nema";
-                            } else {
-                                $brojKomentara = $upit->rowCount();
-                            }
-                            echo "<a href='" . $clanci[$j]['id'] . "' class='anchor-komentari lijevo-pozicija zatvoreno'>"
-                                . $brojKomentara . " komentara</a>\r\n";
-                            if($username!=="Anoniman"){
-                                echo "<form method='post' action='index.php'"
-                                    ."style='width:83%;text-align:center;'>"
-                                    ."<input type='hidden' name='vijestID' value='"
-                                    .$clanci[$j]['id']."'>"
-                                    ."<input type='submit' name='izmijeniVijest' value='Izmijeni' class='submit-komentar'>"
-                                    ."<input type='submit' name='obrisiVijest' value='Obriši' class='submit-komentar'>"
-                                    ."</form>";
-                            }
-                            echo "<br><br><div id='div" . $clanci[$j]['id'] . "'class='div-komentari'>"
-                                . "<p class='border-siva'></p>\r\n"
-                                . "<form method='POST' action='index.php'>\r\n"
-                                . "<input type='hidden' name='novostID' value='" . $clanci[$j]['id'] . "'>\r\n"
-                                . "<input type='text' name='autor' placeholder='Ime i prezime' class='ulaz lijevo'>\r\n"
-                                . "<input type='text' name='email' placeholder='E-mail adresa (opcionalno)' class='ulaz lijevo'>\r\n"
-                                . "<textarea name='tekstKomentara' rows=5 cols=69 class='ulaz' placeholder='Komentar'>"
-                                . "</textarea>\r\n";
-                            if ($prazniUnosi and $vijestGreska == $clanci[$j]['id'])
-                                echo "<label id='labelPogresanUnos' style='color: red; font-weight: bold;'>Pogrešan unos.</label>";
-                            echo "<input type='submit' name='komentarisi' value='Komentariši' class='submit-komentar desno-pozicija'>\r\n"
-                                . "</form><br><br>\r\n";
-                            if ($brojKomentara !== "Nema") {
-                                echo "<h3 class='border-komentari velika-slova'>Komentari</h3>\r\n";
-                                foreach ($upit as $komentar) {
-                                    echo "<div class='div-komentar'>\r\n";
-                                    if ($komentar['email'] !== "") {
-                                        echo "<a href='mailto:" . $komentar['email'] . "' class='anchor-ime bold'>"
-                                            . $komentar['autor'] . "</a><br>\r\n";
-                                    } else {
-                                        echo "<label class='anchor-ime bold not-underlined'>" . $komentar['autor'] . "</label><br>\r\n";
-                                    }
-                                    $datetime = explode(" ", $komentar['vrijeme']);
-                                    $date = $datetime[0];
-                                    $time = $datetime[1];
-                                    echo "<label class='label-vrijeme'>" . $date . " u " . $time . "</label>\r\n"
-                                        . "<p class='p-komentar'>" . $komentar['tekst'] . "</p>\r\n";
-                                    if($username!=="Anoniman") {
-                                         echo "<form action='index.php' method='post'>"
-                                             ."<input type='hidden' name='komentarID' value='".$komentar['id']."'>"
-                                            . "<input type='submit' name='izbrisiKomentar' value='Izbriši komentar'"
-                                             ."class='submit-komentar desno-pozicija' style='font-weight:normal; padding:3px 5px;'>"
-                                            . "</form>";
-                                    }
-                                    echo "</div>";
-                                }
-                            }
-                            echo "</div>\r\n</div>\r\n\r\n";
-
-                        }
-                        echo "</div>";
                     }
                     function desniSideBar(){
                         echo '<div class="desno">

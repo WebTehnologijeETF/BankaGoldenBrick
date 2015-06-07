@@ -1,5 +1,6 @@
 <?php
 session_start();
+require("includes/funkcije.php");
 if (isset($_SESSION['username'])){
     $username = $_SESSION['username'];
 }else{
@@ -11,10 +12,10 @@ if(isset($_REQUEST['dodajNovost'])){
     if(empty($_REQUEST['autor']) || empty($_REQUEST['naslov']) || empty($_REQUEST['tekst'])){
         $greska = true;
     }else{
-        try {
-            $veza = new PDO("mysql:dbname=goldenbrick;host=localhost;charset=utf8", "goldenbrickDB", "shawshank");
-        }catch(PDOException $ex){
-            echo "MYSQL greška: ".$ex->errorInfo();
+        try{
+            $veza = connect();
+        }catch (PDOException $ex){
+            echo $ex->getMessage();
             die();
         }
         $upit = $veza->prepare("INSERT INTO novosti (autor, naslov, slika, tekst) VALUES (:autor, :naslov, :slika, :tekst)");
@@ -36,10 +37,10 @@ if(isset($_REQUEST['dodajAdmina'])){
         $greska = true;
         $tekstGreske = "Polja nisu popunjena.";
     }else{
-        try {
-            $veza = new PDO("mysql:dbname=goldenbrick;host=localhost;charset=utf8", "goldenbrickDB", "shawshank");
-        }catch(PDOException $ex){
-            echo "MYSQL greška: ".$ex->errorInfo();
+        try{
+            $veza = connect();
+        }catch (PDOException $ex){
+            echo $ex->getMessage();
             die();
         }
         $uname = htmlentities($_REQUEST['username']);
@@ -49,7 +50,7 @@ if(isset($_REQUEST['dodajAdmina'])){
             $tekstGreske = "Korisničko ime je u upotrebi.";
             $greska = true;
         }else {
-            $upit = $veza->prepare("INSERT INTO korisnici (username, password, email) VALUES (:uname, :pass, :email)");
+            $upit = $veza->prepare("INSERT INTO korisnici (username, password, email, admin) VALUES (:uname, :pass, :email, '1')");
             $pass = htmlentities($_REQUEST['password']);
             $pass = md5($pass);
             $email = htmlentities($_REQUEST['email']);
@@ -70,10 +71,10 @@ if(isset($_REQUEST['promijeniAdmina'])){
         $greska = true;
         $tekstGreske = "Administrator nije izabran.";
     }else{
-        try {
-            $veza = new PDO("mysql:dbname=goldenbrick;host=localhost;charset=utf8", "goldenbrickDB", "shawshank");
-        }catch(PDOException $ex){
-            echo "MYSQL greška: ".$ex->errorInfo();
+        try{
+            $veza = connect();
+        }catch (PDOException $ex){
+            echo $ex->getMessage();
             die();
         }
         $uname = htmlentities($_REQUEST['username']);
@@ -107,10 +108,10 @@ if(isset($_REQUEST['obrisiAdmina'])){
         $tekstGreske = "Administrator nije izabran.";
     }else {
         $admin = htmlentities($_REQUEST['admin']);
-        try {
-            $veza = new PDO("mysql:dbname=goldenbrick;host=localhost;charset=utf8", "goldenbrickDB", "shawshank");
-        } catch (PDOException $ex) {
-            echo "MYSQL greška: " . $ex->errorInfo();
+        try{
+            $veza = connect();
+        }catch (PDOException $ex){
+            echo $ex->getMessage();
             die();
         }
         $upit = $veza->query("SELECT * FROM korisnici");
@@ -134,12 +135,10 @@ if(isset($_REQUEST['obrisiAdmina'])){
 <html>
 <head>
     <?php
-    require("includes/funkcije.php");
     ucitajHead();
     ?>
     <script>
         function popuniUsername(){
-            //console.log("MMM");
             var drop = document.izmjenaAdmina.admin;
             var ime = drop.options[drop.selectedIndex].value;
             document.izmjenaAdmina.username.removeAttribute("value");
@@ -264,10 +263,10 @@ if(isset($_REQUEST['obrisiAdmina'])){
     function promjenaAdmina($greska, $tekstGreske){
         echo "<div class='dodavanje'>"
             ."<h2>Promjena administratora</h2><br>";
-        try {
-            $veza = new PDO("mysql:dbname=goldenbrick;host=localhost;charset=utf8", "goldenbrickDB", "shawshank");
-        }catch(PDOException $ex){
-            echo "MYSQL greška: ".$ex->errorInfo();
+        try{
+            $veza = connect();
+        }catch (PDOException $ex){
+            echo $ex->getMessage();
             die();
         }
         echo "<form name='izmjenaAdmina' method='post' action='admin.php?update=admin'>";
@@ -298,10 +297,10 @@ if(isset($_REQUEST['obrisiAdmina'])){
     function obrisiAdmina($greska, $tekstGreske){
         echo "<div class='dodavanje'>"
             ."<h2>Brisanje administratora</h2><br>";
-        try {
-            $veza = new PDO("mysql:dbname=goldenbrick;host=localhost;charset=utf8", "goldenbrickDB", "shawshank");
-        }catch(PDOException $ex){
-            echo "MYSQL greška: ".$ex->errorInfo();
+        try{
+            $veza = connect();
+        }catch (PDOException $ex){
+            echo $ex->getMessage();
             die();
         }
         echo "<form name='brisanjeAdmina' method='post' action='admin.php?delete=admin'>";

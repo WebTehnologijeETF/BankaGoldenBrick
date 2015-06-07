@@ -430,6 +430,21 @@ img.author{
 .div-komentari{
     display: none;
 }
+.message-box{
+    position: fixed;
+    z-index: 100;
+    top: 8%;
+    left: 40%;
+    width: 18%;
+    padding: 10px;
+    border: 2px solid lightslategrey;
+    color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #ffffff;
+}
 .div-komentar{
     background-color: white;
     padding: 10px 5px;
